@@ -8,17 +8,17 @@
 - **Production domain:** Preferred `https://pushpakvootla.cloud`; not yet deployed or verified
 - **Overall release status:** **NOT READY FOR SHARING**
 
-The local release candidate is functional and content-safe. Recruiter-sharing approval is withheld because no production deployment exists, the GitHub repository has not been created, and the final owner resume replacement is pending.
+The local release candidate is functional, content-safe and pushed to the public GitHub repository. Recruiter-sharing approval is withheld because no production deployment exists and the final owner resume replacement is pending.
 
 ## Critical Issues
 
 1. No verified production deployment or live route test exists.
-2. No GitHub portfolio repository or Vercel account/project exists yet.
+2. No Vercel account/project exists yet.
 3. Mobile navigation and keyboard behaviour require a final human browser review on the production deployment.
 
 ## Important Pending Items
 
-- Create the GitHub repository and push the committed local `main` branch.
+- Create the Vercel account/project and connect the pushed GitHub `main` branch.
 - Confirm the correct Vercel project, deploy a preview, deploy Production and verify the custom domain.
 - Replace the generated resume with the owner's final approved PDF and re-run validation.
 - Complete external browser testing at 320px, 375px, 768px, 1024px and 1440px.

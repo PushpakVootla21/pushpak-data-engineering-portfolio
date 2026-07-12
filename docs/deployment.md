@@ -4,7 +4,7 @@
 
 | Field | Status |
 | --- | --- |
-| Repository | Local repository only; GitHub remote pending owner action |
+| Repository | `https://github.com/PushpakVootla21/pushpak-data-engineering-portfolio` |
 | Production branch | `main` confirmed and created locally |
 | Package manager | npm with `package-lock.json` |
 | Install command | `npm install` |
@@ -22,7 +22,7 @@
 | Sitemap | `/sitemap.xml`; production origin requires the environment variable |
 | Robots | `/robots.txt`; production indexing requires `VERCEL_ENV=production` |
 | Deployment date | Pending |
-| Git commit hash | Initial source commit `0bff9bf` |
+| Git commit hash | Release status commit `443e63b` pushed on `main`; documentation status update follows |
 | Known warnings | No automated test suite; favicon, social preview, final owner resume, GitHub repository and Vercel account pending |
 
 ## Vercel Handoff

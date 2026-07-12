@@ -6,8 +6,8 @@ Checked items are locally verified. Deployment-dependent items remain unchecked.
 - [x] Git working tree reviewed and initial source committed
 - [x] Private files excluded from intended source set
 - [x] Production branch confirmed as `main`
-- [ ] Commit pushed
-- [ ] GitHub repository verified
+- [x] Commit pushed to `main`
+- [x] GitHub repository verified
 
 ## Build
 - [x] Dependency installation passed

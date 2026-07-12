@@ -20,7 +20,7 @@ Only locally verified items are checked. External and production actions remain 
 - [ ] Social-preview image verified
 
 ## Deployment
-- [ ] GitHub production branch pushed (`main` confirmed locally)
+- [x] GitHub production branch pushed (`main`)
 - [ ] Vercel production deployment completed
 - [ ] Custom domain verified
 - [ ] HTTPS verified
