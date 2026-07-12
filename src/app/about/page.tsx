@@ -1,0 +1,60 @@
+import Image from "next/image";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/Button";
+import { ProfilePageCta } from "@/components/profile/ProfilePageCta";
+import { SectionContainer } from "@/components/ui/SectionContainer";
+import { Tag } from "@/components/ui/Tag";
+import { profile } from "@/lib/site";
+import { skillGroups } from "@/data/skills";
+import { absoluteTitle, canonicalFor } from "@/lib/metadata";
+
+export const metadata: Metadata = {
+  title: absoluteTitle("About Pushpak Vootla | Azure Data Engineer"),
+  description: "Learn about Pushpak Vootla’s Azure Data Engineering focus, production operations mindset and hands-on work with ADF, Databricks, PySpark, Delta Lake and Microsoft Fabric.",
+  alternates: canonicalFor("/about"),
+};
+
+const principles = [
+  { title: "Understand the Data Contract", description: "Clarify the source structure, refresh pattern, expected output and downstream dependency before implementation." },
+  { title: "Validate Before Promotion", description: "Apply schema, file, record and business-rule checks before data reaches a trusted layer." },
+  { title: "Design for Operational Visibility", description: "Capture execution status, failure context, row counts and stage-level information needed for support." },
+  { title: "Protect Reruns and Watermarks", description: "Ensure repeated processing and incremental state changes follow controlled success conditions." },
+  { title: "Keep the Design Explainable", description: "Use clear configuration, consistent naming and documentation so the pipeline can be understood and maintained." },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      <header className="profile-page-hero">
+        <div className={`profile-page-inner about-hero-layout${profile.profileImage ? " has-image" : ""}`}>
+          <div>
+            <p className="eyebrow">Professional Profile</p>
+            <h1>About Me</h1>
+            <h2>Azure Data Engineering with a Production Operations Mindset</h2>
+            <div className="about-narrative">
+              <p>I am an Azure Data Engineer based in Chennai with more than three years of professional experience. My current work and project focus covers Azure Data Factory, Azure Databricks, PySpark, Delta Lake, ADLS Gen2, Unity Catalog and Microsoft Fabric.</p>
+              <p>My approach to data engineering is influenced by production operations. I consider a pipeline complete only when its validation, monitoring, failure handling, rerun behaviour and downstream data contract are clear.</p>
+              <p>I have worked on metadata-driven ingestion, Landing-to-Raw processing, structured Databricks result handling, framework logging, watermark control, quarter-based processing and data readiness for downstream analytics and Data Science workloads.</p>
+              <p>Alongside implementation work, I build detailed portfolio case studies to strengthen my understanding of validation-first ingestion, lakehouse patterns, Mapping Data Flows and data-quality controls.</p>
+            </div>
+          </div>
+          {profile.profileImage && <Image className="profile-photo" src={profile.profileImage} alt="Pushpak Vootla, Azure Data Engineer" width={480} height={600} priority />}
+        </div>
+      </header>
+      <SectionContainer eyebrow="Working Principles" title="How I Approach Data Engineering">
+        <ol className="principles-grid">{principles.map((principle, index) => <li key={principle.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{principle.title}</h3><p>{principle.description}</p></li>)}</ol>
+      </SectionContainer>
+      <SectionContainer className="section-muted" eyebrow="Capabilities" title="Current Technical Focus" description="Technologies and practices I currently use or continue to develop through implementation and portfolio work.">
+        <div className="technology-grid about-skill-grid">{skillGroups.map((group) => <article className="technology-group" key={group.id}><h3>{group.title}</h3><p className="skill-group-description">{group.description}</p><div className="tag-list">{group.skills.map((skill) => <Tag key={skill.id}>{skill.name}</Tag>)}</div></article>)}</div>
+      </SectionContainer>
+      <SectionContainer eyebrow="Credentials" title="Certifications" description="Professional certifications and learning credentials across Azure, AWS and supporting delivery tools.">
+        <div className="certification-grid about-certifications">{profile.certifications.map((certification, index) => <article className={index === profile.certifications.length - 1 ? "secondary-credential" : undefined} key={certification.id}><p>{certification.issuer}</p><h3>{certification.name}</h3><span>{certification.status}</span></article>)}</div>
+      </SectionContainer>
+      <SectionContainer eyebrow="Next Steps" title="Career Direction">
+        <div className="career-direction"><p>I am focused on Azure Data Engineering roles where I can contribute to reliable ingestion, transformation, lakehouse processing and operationally clear data platforms.</p><p>I am particularly interested in opportunities involving Azure Data Factory, Microsoft Fabric, Azure Databricks, PySpark, Delta Lake and metadata-driven data engineering.</p></div>
+        <div className="hero-actions"><Button href="/experience">View Experience</Button><Button href="/projects" variant="secondary">Explore Projects</Button><Button href="/resume" variant="secondary">View Resume</Button></div>
+      </SectionContainer>
+      <ProfilePageCta />
+    </>
+  );
+}
