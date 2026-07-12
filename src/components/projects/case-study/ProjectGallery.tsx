@@ -13,7 +13,14 @@ export function ProjectGallery({ project }: { project: Project }) {
       <div className="project-gallery">
         {media.map((item) => (
           <figure key={item.id}>
-            <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 700px) 100vw, 50vw" />
+            <Image
+              src={item.src}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              sizes="(max-width: 700px) 100vw, 50vw"
+              unoptimized
+            />
             <figcaption><strong>{item.title}</strong><span>{item.caption}</span></figcaption>
           </figure>
         ))}
