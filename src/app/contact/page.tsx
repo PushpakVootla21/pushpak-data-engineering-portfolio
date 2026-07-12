@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { Tag } from "@/components/ui/Tag";
-import { getMailtoUrl, isValidExternalUrl, isValidResumePath } from "@/lib/links";
+import { getGmailComposeUrl, isValidExternalUrl } from "@/lib/links";
 import { profile, siteConfig } from "@/lib/site";
 import { absoluteTitle, canonicalFor } from "@/lib/metadata";
 
@@ -29,11 +29,10 @@ const discussionAreas = [
 ];
 
 export default function ContactPage() {
-  const mailtoUrl = getMailtoUrl(profile.email, "Azure Data Engineering Opportunity");
+  const gmailComposeUrl = getGmailComposeUrl(profile.email, "Azure Data Engineering Opportunity");
   const linkedinUrl = isValidExternalUrl(profile.linkedinUrl) ? profile.linkedinUrl : null;
   const githubUrl = isValidExternalUrl(profile.githubUrl) ? profile.githubUrl : null;
   const portfolioUrl = isValidExternalUrl(profile.portfolioUrl) ? profile.portfolioUrl : siteConfig.siteUrl;
-  const resumePdf = isValidResumePath(profile.resumeFile) ? profile.resumeFile : null;
 
   return (
     <>
@@ -49,13 +48,13 @@ export default function ContactPage() {
 
       <SectionContainer eyebrow="Get in Touch" title="Professional Contact">
         <div className="contact-action-grid">
-          <article><h3>Email</h3><p>For Azure Data Engineering roles, interview discussions and relevant professional opportunities.</p><a className="button-link primary" href={mailtoUrl} aria-label="Email Pushpak Vootla about an Azure Data Engineering opportunity">Email Me</a></article>
+          <article><h3>Email</h3><p>For Azure Data Engineering roles, interview discussions and relevant professional opportunities.</p><ExternalLink className="button-link primary" href={gmailComposeUrl}>Email Pushpak Vootla using Gmail</ExternalLink></article>
           {linkedinUrl && <article><h3>LinkedIn</h3><p>Connect for professional networking, hiring discussions and data engineering content.</p><ExternalLink className="button-link secondary" href={linkedinUrl}>Connect with Pushpak Vootla on LinkedIn</ExternalLink></article>}
           {githubUrl && <article><h3>GitHub</h3><p>Explore repositories, implementation notes and supporting project code.</p><ExternalLink className="button-link secondary" href={githubUrl}>Review Pushpak Vootla on GitHub</ExternalLink></article>}
-          <article><h3>Resume</h3><p>Review my professional experience, technical skills, certifications and selected Azure Data Engineering projects.</p><Button href="/resume" variant="secondary">View Resume</Button>{resumePdf && <a className="text-link contact-download" href={resumePdf} download>Download Pushpak Vootla resume (PDF)</a>}</article>
+          <article><h3>Resume</h3><p>Review my professional experience, technical skills, certifications and selected Azure Data Engineering projects, with a PDF download available on the resume page.</p><Button href="/resume" variant="secondary">View Resume</Button></article>
         </div>
         <dl className="professional-contact-list">
-          <div><dt>Email</dt><dd><a href={mailtoUrl}>{profile.email}</a></dd></div>
+          <div><dt>Email</dt><dd><ExternalLink href={gmailComposeUrl}>{profile.email}</ExternalLink></dd></div>
           <div><dt>Location</dt><dd>{profile.location}</dd></div>
           {linkedinUrl && <div><dt>LinkedIn</dt><dd><ExternalLink href={linkedinUrl}>View Pushpak Vootla’s LinkedIn profile</ExternalLink></dd></div>}
           {githubUrl && <div><dt>GitHub</dt><dd><ExternalLink href={githubUrl}>View Pushpak Vootla’s GitHub profile</ExternalLink></dd></div>}
@@ -74,7 +73,7 @@ export default function ContactPage() {
       <section className="contact-recruiter-cta">
         <div className="contact-recruiter-inner">
           <div><p className="eyebrow">Professional Opportunities</p><h2>Open to Azure Data Engineering Opportunities</h2><p>I am interested in roles involving Azure Data Factory, Microsoft Fabric, Azure Databricks, PySpark, Delta Lake and dependable data-platform engineering.</p></div>
-          <div className="hero-actions"><a className="button-link primary" href={mailtoUrl}>Email Me</a><Link className="button-link secondary" href="/experience">View Experience</Link><Link className="button-link secondary" href="/projects">View Projects</Link><Link className="button-link secondary" href="/resume">View Resume</Link></div>
+          <div className="hero-actions"><ExternalLink className="button-link primary" href={gmailComposeUrl}>Email Me using Gmail</ExternalLink><Link className="button-link secondary" href="/experience">View Experience</Link><Link className="button-link secondary" href="/projects">View Projects</Link><Link className="button-link secondary" href="/resume">View Resume</Link></div>
         </div>
       </section>
     </>

@@ -200,7 +200,6 @@ a { color: inherit; text-decoration: none; }
 .contact-action-grid article > p { margin: .7rem 0 1.2rem; color: var(--muted); font-size: .84rem; line-height: 1.65; }
 .contact-action-grid .button-link, .contact-action-grid > article > a, .contact-action-grid > article > .contact-link-unavailable { margin-top: auto; }
 .contact-link-unavailable { border-left: 3px solid #b4cbd3; background: #f4f7f8; padding: .65rem .75rem; color: #687b83 !important; font-size: .76rem !important; }
-.contact-download { display: inline-block; margin-top: .8rem !important; }
 .professional-contact-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; margin: 2rem 0 0; background: var(--line); border: 1px solid var(--line); }
 .professional-contact-list div { min-width: 0; background: #f8fafb; padding: 1rem; }
 .professional-contact-list dt { color: #687b84; font-size: .68rem; font-weight: 800; text-transform: uppercase; }

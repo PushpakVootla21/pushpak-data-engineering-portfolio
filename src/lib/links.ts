@@ -1,5 +1,11 @@
-export function getMailtoUrl(email: string, subject: string) {
-  return `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+export function getGmailComposeUrl(email: string, subject: string) {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: email,
+    su: subject,
+  });
+  return `https://mail.google.com/mail/?${params.toString()}`;
 }
 
 export function isValidExternalUrl(value: string | null): value is string {
