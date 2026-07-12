@@ -3,7 +3,7 @@
 Checked items are locally verified. Deployment-dependent items remain unchecked.
 
 ## Repository
-- [x] Git working tree reviewed
+- [x] Git working tree reviewed and initial source committed
 - [x] Private files excluded from intended source set
 - [x] Production branch confirmed as `main`
 - [ ] Commit pushed

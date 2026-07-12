@@ -5,7 +5,7 @@
 | Field | Status |
 | --- | --- |
 | Repository | Local repository only; GitHub remote pending owner action |
-| Production branch | `main` confirmed by owner; local branch migration pending initial commit |
+| Production branch | `main` confirmed and created locally |
 | Package manager | npm with `package-lock.json` |
 | Install command | `npm install` |
 | Build command | `npm run build` |
@@ -22,7 +22,7 @@
 | Sitemap | `/sitemap.xml`; production origin requires the environment variable |
 | Robots | `/robots.txt`; production indexing requires `VERCEL_ENV=production` |
 | Deployment date | Pending |
-| Git commit hash | Pending; repository has no commit yet |
+| Git commit hash | Initial source commit `0bff9bf` |
 | Known warnings | No automated test suite; favicon, social preview, final owner resume, GitHub repository and Vercel account pending |
 
 ## Vercel Handoff

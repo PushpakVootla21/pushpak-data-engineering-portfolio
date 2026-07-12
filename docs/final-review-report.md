@@ -3,7 +3,7 @@
 ## Release Record
 
 - **Review date:** 11 July 2026
-- **Git commit hash:** Pending; the local repository has no commit
+- **Git commit hash:** Initial source commit `0bff9bf`
 - **Deployment URL:** Pending
 - **Production domain:** Preferred `https://pushpakvootla.cloud`; not yet deployed or verified
 - **Overall release status:** **NOT READY FOR SHARING**
@@ -18,7 +18,7 @@ The local release candidate is functional and content-safe. Recruiter-sharing ap
 
 ## Important Pending Items
 
-- Confirm the GitHub repository and production branch, then commit and push.
+- Create the GitHub repository and push the committed local `main` branch.
 - Confirm the correct Vercel project, deploy a preview, deploy Production and verify the custom domain.
 - Replace the generated resume with the owner's final approved PDF and re-run validation.
 - Complete external browser testing at 320px, 375px, 768px, 1024px and 1440px.
