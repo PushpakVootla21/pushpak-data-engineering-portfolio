@@ -32,7 +32,22 @@ export const projects: Project[] = [
     outcome:
       "The workflow helps prevent unsupported and schema-incompatible files from entering the trusted Lakehouse table while preserving invalid files for review and applying controlled archive and cleanup behaviour.",
     featured: true,
+    status: "Completed",
+    githubUrl: "https://github.com/PushpakVootla21/fabric-case-studies/tree/main/case-study-1-grandeur-properties",
     caseStudyAvailable: true,
+    screenshots: [
+      { id: "fabric-pipeline-canvas", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/01-pipeline-canvas-overview.png", title: "Pipeline Canvas Overview", caption: "End-to-end Fabric Data Factory orchestration for discovery, validation, curated loading and controlled file handling.", alt: "Microsoft Fabric Data Factory pipeline canvas showing the complete validation-first lakehouse ingestion workflow.", width: 1600, height: 900 },
+      { id: "fabric-file-discovery", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/02-getmetadata-and-filters.png", title: "Discovery and File Filtering", caption: "Get Metadata and filter activities classify trusted office CSV candidates and unexpected inputs.", alt: "Fabric pipeline activities for landing-file discovery and trusted file filtering.", width: 1600, height: 900 },
+      { id: "fabric-valid-file-flow", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/03-foreach-valid-file-flow.png", title: "Valid File Processing", caption: "The valid-file branch processes each approved candidate independently through validation and loading.", alt: "Fabric ForEach activity showing the valid office file processing branch.", width: 1600, height: 900 },
+      { id: "fabric-schema-validation", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/04-schema-validation-notebook-step.png", title: "Schema Validation Notebook", caption: "A Fabric Notebook checks schema compatibility before trusted Lakehouse promotion.", alt: "Fabric Notebook activity used for pre-load schema validation.", width: 1600, height: 900 },
+      { id: "fabric-lakehouse-upsert", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/05-copy-to-lakehouse-upsert.png", title: "Lakehouse Upsert", caption: "Approved records are merged into the curated Lakehouse target using property_id as the match key.", alt: "Fabric Copy activity configured to upsert approved property records into a Lakehouse table.", width: 1600, height: 900 },
+      { id: "fabric-archive", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/06-archive-processed-files.png", title: "Processed File Archive", caption: "Successfully processed source files are preserved in archive before landing cleanup.", alt: "Fabric pipeline activity archiving successfully processed source files.", width: 1600, height: 900 },
+      { id: "fabric-cleanup", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/07-delete-from-landing.png", title: "Dependency-Based Landing Cleanup", caption: "Landing deletion runs only after the required archive or quarantine operation succeeds.", alt: "Fabric delete activity configured after successful preservation of the source file.", width: 1600, height: 900 },
+      { id: "fabric-notification", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/08-teams-notification-step.png", title: "Pipeline Notification", caption: "The notification step reports pipeline identity, run metadata, execution time and status.", alt: "Microsoft Fabric pipeline activity configured to send an execution notification to Microsoft Teams.", width: 1600, height: 900 },
+      { id: "fabric-table-output", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/10-lakehouse-table-output.png", title: "Curated Lakehouse Output", caption: "The trusted target contains approved business columns and operational ingestion metadata.", alt: "Microsoft Fabric Lakehouse table showing curated output from the ingestion pipeline.", width: 1600, height: 900 },
+      { id: "fabric-archive-output", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/11-archive-folder-output.png", title: "Archive Folder Output", caption: "Processed trusted files remain available for traceability and controlled reprocessing.", alt: "Microsoft Fabric Lakehouse archive folder containing processed source files.", width: 1600, height: 900 },
+      { id: "fabric-quarantine-output", type: "screenshot", src: "https://raw.githubusercontent.com/PushpakVootla21/fabric-case-studies/main/case-study-1-grandeur-properties/screenshots/12-quarantine-folder-output.png", title: "Quarantine Folder Output", caption: "Schema-drift and unsupported inputs are retained outside the trusted processing path for investigation.", alt: "Microsoft Fabric Lakehouse quarantine folder containing invalid and unsupported source files.", width: 1600, height: 900 },
+    ],
     media: [
       { id: "fabric-validation-architecture", type: "architecture", src: "/projects/validation-first-fabric-lakehouse-ingestion/architecture.svg", title: "Validation-First Microsoft Fabric Lakehouse Ingestion", caption: "Microsoft Fabric workflow separating trusted office CSV data from invalid files before curated Lakehouse loading.", alt: "Architecture showing Microsoft Fabric Data Factory moving trusted office CSV files through PySpark validation into curated Lakehouse output, with invalid files routed to quarantine.", width: 1600, height: 900, featured: true },
     ],
@@ -50,7 +65,7 @@ export const projects: Project[] = [
       supportingStatement:
         "The project focuses on preventing wrongly named, unsupported and schema-incompatible files from reaching the trusted dataset while preserving files through archive and quarantine paths.",
       mediaPlaceholder:
-        "Project screenshots will be added after the approved assets are included in the repository.",
+        "The public repository includes the exported pipeline JSON, validation playbook, SQL verification queries and masked implementation screenshots.",
       projectType: "Hands-on data engineering implementation",
       dataSources: ["CSV files in a Fabric Lakehouse landing folder"],
       processingApproach: "Fabric Data Factory pipeline with Fabric Notebook and PySpark-based schema validation",
@@ -67,6 +82,7 @@ export const projects: Project[] = [
         { label: "Loading behaviour", value: "Upsert using property_id" },
         { label: "Invalid-data handling", value: "Quarantine folders" },
         { label: "Operational controls", value: "Archive-before-delete, quarantine-before-delete and pipeline notifications" },
+        { label: "Implementation evidence", value: "Pipeline JSON, validation playbook, SQL checks and masked Fabric screenshots" },
         { label: "Primary focus", value: "Validation, trusted data promotion and controlled file lifecycle" },
       ],
       problemType: "Engineering problem",

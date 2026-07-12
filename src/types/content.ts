@@ -118,6 +118,7 @@ export type ProblemType =
   | "Learning implementation";
 export type ProjectMediaType =
   | "architecture"
+  | "screenshot"
   | "flow"
   | "sequence"
   | "pipeline"

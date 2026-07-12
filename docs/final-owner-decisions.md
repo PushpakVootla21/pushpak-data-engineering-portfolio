@@ -21,7 +21,7 @@ No decision below is marked approved. Confirm each item before changing the publ
 | Azure AI Fundamentals credential URL | Pending | No genuine URL configured |
 | AWS Data Engineer credential URL | Pending | No genuine URL configured |
 | Jira Fundamentals credential URL | Pending | No genuine URL configured |
-| Fabric project GitHub URL | Missing | Omit public repository actions until verified |
+| Fabric project GitHub URL | Verified | `https://github.com/PushpakVootla21/fabric-case-studies/tree/main/case-study-1-grandeur-properties` |
 | Quarterly project GitHub URL | Missing | Omit public repository actions until verified |
 | Metadata-driven ADF GitHub URL | Missing | Omit public repository actions until verified |
 | Retail project GitHub URL | Missing | Omit public repository actions until verified |
