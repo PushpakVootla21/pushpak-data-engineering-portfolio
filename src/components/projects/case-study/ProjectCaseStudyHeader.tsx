@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Tag } from "@/components/ui/Tag";
+import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project } from "@/types/content";
 
 export function ProjectBreadcrumb({ project }: { project: Project }) {
@@ -42,10 +43,12 @@ export function ProjectHero({ project }: { project: Project }) {
             </div>
           </div>
           <div className="architecture-media">
-            <div className="architecture-placeholder">
+            {architectureAsset ? (
+              <ProjectMediaTrigger asset={architectureAsset} sizes="(max-width: 900px) 100vw, 420px" />
+            ) : <div className="architecture-placeholder">
               <span aria-hidden="true">Architecture</span>
-              <p>{architectureAsset ? "A detailed architecture diagram is available with the technical workflow below." : project.caseStudy?.mediaPlaceholder ?? "Architecture diagram will be added with the detailed project documentation."}</p>
-            </div>
+              <p>{project.caseStudy?.mediaPlaceholder ?? "Architecture diagram will be added with the detailed project documentation."}</p>
+            </div>}
           </div>
         </div>
       </div>

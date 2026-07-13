@@ -7,6 +7,7 @@ import { AdditionalCaseStudySections, ArchitectureWorkflow, DataFlowSteps, Imple
 import { DesignDecisions, MonitoringControls, ProjectChallenges, ProjectOutcome, RecoveryConsiderations, SecurityControls, TechnologyGroups, ValidationRules } from "@/components/projects/case-study/ProjectCaseStudyReliability";
 import { ProjectNavigation } from "@/components/projects/case-study/ProjectNavigation";
 import { ProjectMediaAssets } from "@/components/projects/case-study/ProjectMediaAsset";
+import { ProjectMediaLightboxProvider } from "@/components/projects/case-study/ProjectMediaLightbox";
 import { projects } from "@/data/projects";
 import { absoluteTitle, canonicalFor } from "@/lib/metadata";
 
@@ -54,6 +55,9 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   const watermarkIndex = details.additionalSections?.findIndex((section) => section.id === "watermark-protection") ?? -1;
   const sectionsThroughWatermark = watermarkIndex >= 0 ? details.additionalSections?.slice(0, watermarkIndex + 1) : details.additionalSections;
   const sectionsAfterWatermark = watermarkIndex >= 0 ? details.additionalSections?.slice(watermarkIndex + 1) : [];
+  const projectMedia = [...(project.media ?? []), ...(project.screenshots ?? [])].filter(
+    (asset, index, assets) => assets.findIndex((candidate) => candidate.id === asset.id) === index,
+  );
 
   const tableOfContents = [
     { id: "overview", label: "Overview", visible: true },
@@ -77,6 +81,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   ].filter((item) => item.visible);
 
   return (
+    <ProjectMediaLightboxProvider media={projectMedia}>
     <article className="project-case-study">
       <ProjectHero project={project} />
       <nav className="case-study-toc" aria-label="Case study sections">
@@ -109,5 +114,6 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         nextProject={availableProjects[projectIndex + 1]}
       />
     </article>
+    </ProjectMediaLightboxProvider>
   );
 }

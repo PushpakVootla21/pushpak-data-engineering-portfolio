@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { CaseStudySection } from "@/components/projects/case-study/CaseStudySection";
+import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project } from "@/types/content";
 
 export function ProjectGallery({ project }: { project: Project }) {
@@ -13,14 +13,7 @@ export function ProjectGallery({ project }: { project: Project }) {
       <div className="project-gallery">
         {media.map((item) => (
           <figure key={item.id}>
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={item.width}
-              height={item.height}
-              sizes="(max-width: 700px) 100vw, 50vw"
-              unoptimized
-            />
+            <ProjectMediaTrigger asset={item} sizes="(max-width: 700px) 100vw, 50vw" />
             <figcaption><strong>{item.title}</strong><span>{item.caption}</span></figcaption>
           </figure>
         ))}

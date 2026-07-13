@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ExternalLink } from "@/components/ui/ExternalLink";
+import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project, ProjectMediaType } from "@/types/content";
 
 interface ProjectMediaAssetsProps {
@@ -17,8 +16,8 @@ export function ProjectMediaAssets({ project, type, sectionId }: ProjectMediaAss
       <div className="case-study-section-inner project-media-stack">
         {assets.map((asset) => (
           <figure className="project-media-figure" key={asset.id}>
-            <div className="project-media-heading"><h2>{asset.title}</h2><ExternalLink className="text-link" href={asset.src}>Open {asset.title} full-size</ExternalLink></div>
-            <Image src={asset.src} alt={asset.alt} width={asset.width} height={asset.height} sizes="(max-width: 1100px) 100vw, 1060px" unoptimized />
+            <div className="project-media-heading"><h2>{asset.title}</h2></div>
+            <ProjectMediaTrigger asset={asset} sizes="(max-width: 1100px) 100vw, 1060px" />
             <figcaption>{asset.caption}</figcaption>
           </figure>
         ))}
