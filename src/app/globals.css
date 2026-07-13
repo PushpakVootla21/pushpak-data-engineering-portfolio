@@ -46,7 +46,8 @@ a { color: inherit; text-decoration: none; }
 .availability > span { width: .5rem; height: .5rem; flex: 0 0 auto; margin-top: .42rem; border-radius: 50%; background: #16855d; box-shadow: 0 0 0 4px #d8f1e7; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
 .primary-actions { margin-top: 1.75rem; }
-.secondary-actions { margin-top: .8rem; }
+.secondary-actions { width: fit-content; margin-top: .8rem; gap: .25rem; }
+.secondary-actions .text-link { display: inline-flex; min-height: 44px; align-items: center; padding: .5rem .65rem; }
 .button-unavailable { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: .55rem; border: 1px solid #cbd6db; border-radius: 6px; background: #f6f8f9; padding: .65rem 1rem; color: #6f8088; font-size: .875rem; font-weight: 700; cursor: not-allowed; }
 .button-unavailable-note { font-size: .65rem; font-weight: 700; text-transform: uppercase; }
 .text-link { border-radius: 3px; color: var(--accent-dark); font-size: .875rem; font-weight: 750; text-decoration: underline; text-decoration-color: #9bcbd9; text-underline-offset: 4px; }

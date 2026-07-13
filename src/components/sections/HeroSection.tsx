@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { PipelineFlowVisual } from "@/components/sections/PipelineFlowVisual";
 import { profile } from "@/lib/site";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -17,12 +18,12 @@ export function HeroSection() {
             <Button href="/projects">Explore Projects</Button>
             <Button href="/resume" variant="secondary">View Resume</Button>
           </div>
-          <div className="hero-actions secondary-actions">
+          <nav className="hero-actions secondary-actions" aria-label="Professional links">
             {profile.socialLinks.map((link) => link.href ? (
               <ExternalLink key={link.label} href={link.href} className="text-link">{link.label}</ExternalLink>
             ) : null)}
-            <Button href="/contact" variant="ghost">Contact Me</Button>
-          </div>
+            <Link href="/contact" className="text-link">Contact Me</Link>
+          </nav>
         </div>
         <PipelineFlowVisual />
       </div>
