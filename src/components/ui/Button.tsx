@@ -26,6 +26,8 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = [
+    "button-link",
+    variant,
     "inline-flex min-h-11 items-center justify-center rounded-md border px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure-600",
     variantClasses[variant],
     className,

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ExperienceTimeline } from "@/components/experience/ExperienceTimeline";
-import { ProfilePageCta } from "@/components/profile/ProfilePageCta";
 import { Button } from "@/components/ui/Button";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { profile } from "@/lib/site";
@@ -44,7 +43,6 @@ export default function ExperiencePage() {
         </div>
         <div className="section-action"><Button href="/projects">Explore Data Engineering Projects</Button></div>
       </SectionContainer>
-      <ProfilePageCta />
     </>
   );
 }

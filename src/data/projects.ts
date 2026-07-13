@@ -184,14 +184,11 @@ export const projects: Project[] = [
       outcomeSummary:
         "The completed workflow establishes a controlled path from file arrival to curated Lakehouse loading. Only files that pass filename, format and schema checks can reach the trusted table, while invalid inputs remain available through quarantine handling.",
       demonstratedValue: [
-        "Demonstrates validation-first ingestion in Microsoft Fabric.",
-        "Shows how Fabric Data Factory and a Fabric Notebook can work together.",
-        "Separates trusted processing from invalid-file handling.",
-        "Uses a business-key upsert for curated loading.",
-        "Applies approved-column mapping and sensitive-field exclusion.",
-        "Preserves files through archive and quarantine before cleanup.",
-        "Adds operational visibility through pipeline notifications.",
-        "Provides safer recovery options than immediate deletion or silent rejection.",
+        "Establishes a validation-first trust boundary before curated loading.",
+        "Routes unsupported and schema-incompatible files to quarantine.",
+        "Uses a business-key upsert and approved-column mapping for curated data.",
+        "Preserves processed and rejected files before landing cleanup.",
+        "Adds execution context through pipeline notifications and audit metadata.",
       ],
       technologyGroups: [
         { label: "Orchestration", technologies: ["Microsoft Fabric Data Factory"] },
@@ -480,7 +477,7 @@ export const projects: Project[] = [
         { challenge: "Protecting Historical and Quarterly Workflows", importance: "Backfill execution should not interfere with recurring runs.", approach: "Use a separate manifest-driven historical framework with guarded dry-run controls." },
       ],
       outcomeSummary: "The completed implementation provides a controlled quarterly path from metadata-driven SQL ingestion to validated Raw Delta tables. Azure Data Factory advances the watermark and records final success only after Databricks processing completes and its structured result passes validation.",
-      demonstratedValue: ["Completed ADF and Databricks source-to-Raw integration.", "Uses metadata-driven source and target processing.", "Supports one-table and all-table execution.", "Validates runtime inputs, files, schema, row counts and quarter partitions.", "Uses partition-aware Raw Delta processing.", "Registers Raw tables through Unity Catalog.", "Establishes a structured notebook-to-ADF result contract.", "Separates master and Raw-stage framework logging.", "Protects watermark movement.", "Provides rerun-safe framework-log handling.", "Standardises quarter_code for Data Science processing.", "Completes the historical migration framework.", "Validates 112 historical operations through a guarded dry run.", "Provides downstream Data Science and curation readiness."],
+      demonstratedValue: ["Controls quarterly source-to-Raw orchestration through metadata-driven ADF processing.", "Validates structured Databricks results before ADF records success.", "Delivers partition-aware Raw Delta tables registered through Unity Catalog.", "Separates master and Raw-stage logging while protecting watermark movement and reruns.", "Standardises quarter_code for downstream processing.", "Supports one-table and all-table execution for recurring quarter loads.", "Validates 112 historical operations through an 8-period by 14-table guarded dry run."],
       technologyGroups: [
         { label: "Orchestration", technologies: ["Azure Data Factory", "Master-child pipelines", "Dynamic expressions", "Metadata-driven execution"] },
         { label: "Source", technologies: ["SQL Server", "14 configured quarterly tables"] },
@@ -683,13 +680,10 @@ export const projects: Project[] = [
       demonstratedValue: [
         "Separates source configuration from reusable pipeline logic.",
         "Supports SQL, HTTP or REST and file-based extraction patterns.",
-        "Uses metadata-driven iteration to process configured sources.",
-        "Demonstrates parameterised pipelines and datasets.",
+        "Uses metadata-driven iteration with parameterised pipelines and datasets.",
         "Applies watermark-based incremental loading for supported relational sources.",
         "Organises landed data through a consistent ADLS Gen2 folder convention.",
-        "Captures execution context for monitoring and troubleshooting.",
-        "Uses retry and notification paths as operational controls.",
-        "Provides a foundation that can be extended with additional validation, reconciliation and deployment controls.",
+        "Captures execution context with retry and notification paths for monitoring.",
       ],
       futureImprovementsTitle: "Potential Improvements",
       futureImprovements: [
@@ -896,15 +890,12 @@ export const projects: Project[] = [
       outcomeSummary:
         "The completed workflow creates a controlled path from Amazon S3 ingestion to reporting-layer loading. Order records must pass duplicate and order-status validation before reaching the sales_reporting table, while rejected records remain available in ADLS Gen2 for investigation.",
       demonstratedValue: [
-        "Demonstrates Amazon S3 to Azure ingestion through Azure Data Factory.",
+        "Moves Amazon S3 order data into Azure through Azure Data Factory.",
         "Uses ADLS Gen2 as a staging and rejected-data location.",
-        "Shows Azure Data Factory and Azure Databricks orchestration.",
-        "Implements duplicate detection using PySpark.",
-        "Uses external reference data for order-status validation.",
+        "Applies PySpark duplicate and order-status validation in Azure Databricks.",
         "Keeps credentials separate from pipeline and notebook code.",
-        "Separates approved and rejected records.",
-        "Preserves rejection information for investigation.",
-        "Provides a practical foundation for extending validation and reconciliation controls.",
+        "Preserves approved and rejected paths for reporting and investigation.",
+        "Documents target-rerun limitations without inferring an unverified sink mode.",
       ],
       futureImprovementsTitle: "Potential Improvements",
       futureImprovements: [
@@ -1109,16 +1100,12 @@ export const projects: Project[] = [
       outcomeSummary:
         "The completed workflow demonstrates how Azure Data Factory Mapping Data Flow can validate, transform and route movie data according to defined analytical and storage requirements.",
       demonstratedValue: [
-        "Reads batch movie data from Azure Blob Storage.",
-        "Uses a Derived Column transformation to prepare genre information.",
-        "Demonstrates ranking within configured groups.",
-        "Calculates grouped movie-rating statistics.",
+        "Transforms batch movie data through Azure Data Factory Mapping Data Flow.",
+        "Derives genre information and applies ranking and grouped statistics.",
         "Applies Assert-based validation for required data-quality rules.",
         "Uses Conditional Split for release-year routing.",
         "Writes outputs to Azure SQL Database and ADLS Gen2.",
-        "Uses parameterised target configuration where implemented.",
         "Preserves processed source files through an archive flow.",
-        "Provides a practical transformation and routing example within Azure Data Factory.",
       ],
       futureImprovementsTitle: "Potential Improvements",
       futureImprovements: [

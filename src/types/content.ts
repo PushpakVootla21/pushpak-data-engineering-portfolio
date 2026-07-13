@@ -319,12 +319,6 @@ export interface Project {
   seo?: ProjectSeo;
 }
 
-export interface ContentCard {
-  title: string;
-  description: string;
-  items?: string[];
-}
-
 export interface WorkflowStage {
   title: string;
   description: string;

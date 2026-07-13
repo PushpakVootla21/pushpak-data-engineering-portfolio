@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ProjectFilter } from "@/components/projects/ProjectFilter";
 import { Button } from "@/components/ui/Button";
 import { SectionContainer } from "@/components/ui/SectionContainer";
-import { projectCapabilities } from "@/data/content";
 import { projects } from "@/data/projects";
 import { absoluteTitle, canonicalFor } from "@/lib/metadata";
 
@@ -27,36 +26,16 @@ export default function ProjectsPage() {
           <p className="eyebrow">Selected Work</p>
           <h1>Azure Data Engineering Projects</h1>
           <p className="projects-lead">
-            Hands-on projects covering Microsoft Fabric, Azure Data Factory,
-            Azure Databricks, PySpark, Delta Lake, data validation, incremental
-            ingestion and production-oriented pipeline controls.
-          </p>
-          <p className="projects-note">
-            These projects demonstrate practical implementation patterns and
-            learning across ingestion, transformation, storage, data quality and
-            pipeline reliability.
+            Compare five hands-on case studies across Microsoft Fabric, Azure
+            Data Factory and Azure Databricks, covering ingestion,
+            transformation, lakehouse storage, validation and pipeline
+            reliability.
           </p>
         </div>
       </section>
 
       <SectionContainer id="project-list" eyebrow="Project Library" title="Filter by Azure Platform">
         <ProjectFilter projects={projects} />
-      </SectionContainer>
-
-      <SectionContainer
-        className="section-muted"
-        eyebrow="Technical Coverage"
-        title="What These Projects Demonstrate"
-      >
-        <div className="project-capability-grid">
-          {projectCapabilities.map((capability, index) => (
-            <article className="project-capability" key={capability.title}>
-              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{capability.title}</h3>
-              <p>{capability.description}</p>
-            </article>
-          ))}
-        </div>
       </SectionContainer>
 
       <SectionContainer className="contact-section">
@@ -71,7 +50,6 @@ export default function ProjectsPage() {
           </div>
           <div className="contact-actions">
             <Button href="/experience">View Experience</Button>
-            <Button href="/resume" variant="secondary">View Resume</Button>
             <Button href="/contact" variant="secondary">Contact Me</Button>
           </div>
         </div>

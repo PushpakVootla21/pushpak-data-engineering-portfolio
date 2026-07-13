@@ -29,10 +29,9 @@ export function ProjectHero({ project }: { project: Project }) {
             <p className="case-study-summary">{project.caseStudy?.heroSummary ?? project.summary}</p>
             {project.caseStudy?.supportingStatement && <p className="case-study-supporting">{project.caseStudy.supportingStatement}</p>}
             <div className="tag-list" aria-label={`${project.title} technologies`}>
-              {(project.caseStudy?.heroTechnologies ?? project.technologies).map((technology) => <Tag key={technology}>{technology}</Tag>)}
+              {(project.caseStudy?.heroTechnologies ?? project.technologies).slice(0, 4).map((technology) => <Tag key={technology}>{technology}</Tag>)}
             </div>
             <div className="case-study-actions">
-              <Button href="/projects" variant="secondary">Back to Projects</Button>
               {architectureAsset && <Button href="#architecture-diagram" variant="ghost">View Architecture</Button>}
             </div>
           </div>

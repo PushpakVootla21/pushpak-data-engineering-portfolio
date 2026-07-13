@@ -24,19 +24,11 @@ export function ProjectCard({ project, projectNumber, compact = false }: Project
         <h3>{project.title}</h3>
         <p className="card-description">{project.summary}</p>
       </div>
-      {!compact && <div className="tag-list" aria-label={`${project.title} technologies`}>
-        {project.technologies.map((technology) => (
+      <div className="tag-list" aria-label={`${project.title} technologies`}>
+        {project.technologies.slice(0, compact ? 3 : 4).map((technology) => (
           <Tag key={technology}>{technology}</Tag>
         ))}
-      </div>}
-      <ul className="check-list" aria-label="Selected engineering highlights">
-        {project.highlights.slice(0, compact ? 2 : 4).map((highlight) => (
-          <li key={highlight}>{highlight}</li>
-        ))}
-      </ul>
-      {!compact && <p className="project-result">
-        <strong>Practical outcome:</strong> {project.outcome}
-      </p>}
+      </div>
       <div className="project-actions">
         {project.caseStudyAvailable ? (
           <Link className="text-link" href={`/projects/${project.slug}`}>

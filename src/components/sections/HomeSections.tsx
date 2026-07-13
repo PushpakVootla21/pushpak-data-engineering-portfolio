@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { Tag } from "@/components/ui/Tag";
 import { ProjectCard } from "@/components/projects/ProjectCard";
@@ -48,7 +46,6 @@ export function ProfessionalProfileSection() {
           <div><span>Location</span><strong>{profile.location}</strong></div>
           <div><span>Experience</span><strong>3+ years of professional experience</strong></div>
           <div><span>Credentials</span><strong>{profile.certifications.length} completed certifications and badges</strong></div>
-          <div className="profile-page-links"><Link className="text-link" href="/about">About Me</Link><Link className="text-link" href="/experience">View Experience</Link><Link className="text-link" href="/resume">View Resume</Link></div>
         </aside>
       </div>
     </SectionContainer>
@@ -61,9 +58,6 @@ export function ContactCtaSection() {
       <div className="contact-panel">
         <div><p className="eyebrow">Contact</p><h2>Open to Azure Data Engineering Opportunities</h2><p>Explore my experience and project case studies, or contact me regarding relevant Azure Data Engineering roles.</p></div>
         <div className="contact-actions"><Button href="/contact">Contact Me</Button><Button href="/resume" variant="secondary">View Resume</Button></div>
-        <div className="social-row">
-          {profile.socialLinks.map((link) => link.href ? <ExternalLink key={link.label} href={link.href} className="text-link">{link.label}</ExternalLink> : null)}
-        </div>
       </div>
     </SectionContainer>
   );

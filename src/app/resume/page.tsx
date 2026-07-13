@@ -19,13 +19,6 @@ export default function ResumePage() {
           <p className="eyebrow">Professional Resume</p>
           <h1>Resume</h1>
           <p className="profile-page-lead">View my Azure Data Engineering experience, technical skills, certifications and project work.</p>
-          {resumeFile && (
-            <div className="resume-actions">
-              <a className="button-link primary resume-download" href={resumeFile} download="Pushpak-Vootla-Azure-Data-Engineer-Resume.pdf" aria-label="Download Pushpak Vootla Azure Data Engineer resume as a PDF">
-                Download Resume <span>PDF</span>
-              </a>
-            </div>
-          )}
           {!resumeFile && <p className="resume-availability">The resume PDF is being prepared.</p>}
         </div>
       </header>
