@@ -1,6 +1,5 @@
 import type { Project } from "@/types/content";
 import Link from "next/link";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Tag } from "@/components/ui/Tag";
 
 interface ProjectCardProps {
@@ -39,11 +38,6 @@ export function ProjectCard({ project, projectNumber, compact = false }: Project
         <strong>Practical outcome:</strong> {project.outcome}
       </p>}
       <div className="project-actions">
-        {project.githubUrl && (
-          <ExternalLink className="text-link" href={project.githubUrl}>
-            Review {project.title} on GitHub
-          </ExternalLink>
-        )}
         {project.caseStudyAvailable ? (
           <Link className="text-link" href={`/projects/${project.slug}`}>
             View Case Study: {project.title}

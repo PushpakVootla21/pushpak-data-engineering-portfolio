@@ -73,7 +73,7 @@ Checked items are locally verified. Deployment-dependent items remain unchecked.
 
 ## Post-Deployment
 - [ ] LinkedIn URL updated
-- [ ] GitHub profile updated
+- [x] Public GitHub destinations intentionally omitted
 - [ ] Search Console verification completed
 - [ ] Sitemap submitted
 - [ ] Final recruiter-facing production review completed

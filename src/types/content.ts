@@ -11,7 +11,6 @@ export interface SiteConfig {
   email: string;
   location: string;
   linkedinUrl: OptionalUrl;
-  githubUrl: OptionalUrl;
   resumeFile: OptionalUrl;
   profileImage: OptionalUrl;
   socialImage: OptionalUrl;
@@ -23,7 +22,7 @@ export interface NavigationItem {
 }
 
 export interface SocialLink {
-  label: "GitHub" | "LinkedIn";
+  label: "LinkedIn";
   href: OptionalUrl;
 }
 
@@ -34,7 +33,6 @@ export interface Profile {
   shortLocation: string;
   email: string;
   linkedinUrl: OptionalUrl;
-  githubUrl: OptionalUrl;
   portfolioUrl: OptionalUrl;
   resumeFile: OptionalUrl;
   profileImage: OptionalUrl;
@@ -313,7 +311,6 @@ export interface Project {
   outcome: string;
   featured: boolean;
   status?: "Completed";
-  githubUrl?: OptionalUrl;
   caseStudyAvailable: boolean;
   architectureImage?: ProjectMedia;
   screenshots?: ProjectMedia[];

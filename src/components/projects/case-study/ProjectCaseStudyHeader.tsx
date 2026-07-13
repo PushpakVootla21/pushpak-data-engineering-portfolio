@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Tag } from "@/components/ui/Tag";
 import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project } from "@/types/content";
@@ -34,11 +33,6 @@ export function ProjectHero({ project }: { project: Project }) {
             </div>
             <div className="case-study-actions">
               <Button href="/projects" variant="secondary">Back to Projects</Button>
-              {project.githubUrl && (
-                <ExternalLink className="button-link primary" href={project.githubUrl}>
-                  View {project.title} repository
-                </ExternalLink>
-              )}
               {architectureAsset && <Button href="#architecture-diagram" variant="ghost">View Architecture</Button>}
             </div>
           </div>

@@ -195,7 +195,7 @@ a { color: inherit; text-decoration: none; }
 .profile-page-cta-inner, .contact-recruiter-inner { display: grid; width: min(100% - 2rem, 1060px); margin-inline: auto; gap: 1.5rem; padding-block: 4.5rem; }
 .profile-page-cta h2, .contact-recruiter-cta h2 { max-width: 780px; margin: 0; font-size: clamp(1.8rem, 4vw, 2.75rem); line-height: 1.15; }
 .professional-availability { display: inline-block; margin: 1.5rem 0 0; border: 1px solid #b8d8e1; border-radius: 5px; background: #fff; padding: .7rem .9rem; color: #405a64; font-size: .82rem; font-weight: 700; }
-.contact-action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.contact-action-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .contact-action-grid article { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 7px; background: #fff; padding: 1.4rem; }
 .contact-action-grid h3 { margin: 0; font-size: 1.1rem; }
 .contact-action-grid article > p { margin: .7rem 0 1.2rem; color: var(--muted); font-size: .84rem; line-height: 1.65; }

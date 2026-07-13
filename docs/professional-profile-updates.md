@@ -11,7 +11,7 @@ Chennai, India
 
 Portfolio: https://pushpakvootla.cloud
 LinkedIn: https://www.linkedin.com/in/pushpakvootla
-GitHub: https://github.com/PushpakVootla21
+Public recruiter links: LinkedIn and https://pushpakvootla.cloud
 ```
 
 Use the portfolio domain only after production verification. Do not add a phone number, WhatsApp link or decorative image signature without explicit approval.
@@ -23,7 +23,7 @@ Apply consistent updates to LinkedIn, Naukri, Indeed, Foundit, Instahyre, Hirist
 - [ ] Target title: Azure Data Engineer
 - [ ] Professional summary uses 3+ years of professional experience, not 3+ years exclusively in Azure
 - [ ] Verified production portfolio URL added
-- [ ] Confirmed public GitHub URL added
+- [x] Public GitHub profile and repository links intentionally omitted
 - [ ] Current Azure data skills updated
 - [ ] Latest verified resume PDF uploaded
 - [ ] Location set to Chennai, India
@@ -52,7 +52,7 @@ Repeat the checklist separately for each platform; do not infer completion from 
 
 ### After Every Major Project
 
-- Add or update the case study and GitHub README.
+- Keep portfolio case studies and professional profiles aligned with approved facts.
 - Update the resume when relevant.
 - Add the verified case study to LinkedIn Featured.
 - Run content and privacy checks.

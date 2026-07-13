@@ -32,7 +32,7 @@ export default function AboutPage() {
             <h1>About Me</h1>
             <h2>Azure Data Engineering with a Production Operations Mindset</h2>
             <div className="about-narrative">
-              <p>I am an Azure Data Engineer based in Chennai with more than three years of professional experience. My current work and project focus covers Azure Data Factory, Azure Databricks, PySpark, Delta Lake, ADLS Gen2, Unity Catalog and Microsoft Fabric.</p>
+              <p>I am an Azure Data Engineer based in Chennai with more than three years of professional experience. My current professional focus includes Azure Data Factory, Azure Databricks, PySpark, Delta Lake, ADLS Gen2 and Unity Catalog, while my portfolio projects extend that work across Microsoft Fabric and additional lakehouse patterns.</p>
               <p>My approach to data engineering is influenced by production operations. I consider a pipeline complete only when its validation, monitoring, failure handling, rerun behaviour and downstream data contract are clear.</p>
               <p>I have worked on metadata-driven ingestion, Landing-to-Raw processing, structured Databricks result handling, framework logging, watermark control, quarter-based processing and data readiness for downstream analytics and Data Science workloads.</p>
               <p>Alongside implementation work, I build detailed portfolio case studies to strengthen my understanding of validation-first ingestion, lakehouse patterns, Mapping Data Flows and data-quality controls.</p>

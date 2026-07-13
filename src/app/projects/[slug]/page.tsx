@@ -109,7 +109,6 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
       <TechnologyGroups details={details} />
       <ProjectGallery project={project} />
       <ProjectNavigation
-        project={project}
         previousProject={availableProjects[projectIndex - 1]}
         nextProject={availableProjects[projectIndex + 1]}
       />

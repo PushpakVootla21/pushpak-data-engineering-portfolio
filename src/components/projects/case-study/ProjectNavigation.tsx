@@ -1,24 +1,21 @@
 import Link from "next/link";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 import type { Project } from "@/types/content";
 
 interface ProjectNavigationProps {
-  project: Project;
   previousProject?: Project;
   nextProject?: Project;
 }
 
-export function ProjectNavigation({ project, previousProject, nextProject }: ProjectNavigationProps) {
+export function ProjectNavigation({ previousProject, nextProject }: ProjectNavigationProps) {
   return (
     <section className="project-navigation-section">
       <div className="case-study-section-inner">
         <div className="project-navigation-heading">
           <p className="eyebrow">Continue Reviewing</p>
           <h2>Review the Implementation</h2>
-          <p>Explore the repository and supporting project documentation where available, or continue reviewing the other Azure Data Engineering projects.</p>
+          <p>Continue through the documented case studies, professional experience and resume.</p>
         </div>
         <div className="project-navigation-actions">
-          {project.githubUrl && <ExternalLink className="button-link primary" href={project.githubUrl}>View {project.title} GitHub repository</ExternalLink>}
           <Link className="button-link secondary" href="/projects">Back to All Projects</Link>
           <Link className="button-link secondary" href="/experience">View Experience</Link>
           <Link className="button-link secondary" href="/resume">View Resume</Link>

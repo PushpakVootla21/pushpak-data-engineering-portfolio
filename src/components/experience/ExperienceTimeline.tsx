@@ -14,7 +14,7 @@ export function ExperienceTimeline({ entries, compact = false }: ExperienceTimel
           <article className="experience-entry">
             <div className="experience-entry-meta">
               <p>{entry.employmentType}</p>
-              <p>{entry.dateLabel}</p>
+              <p><time dateTime={entry.startDate}>{entry.dateLabel.split(" — ")[0]}</time> — {entry.endDate ? <time dateTime={entry.endDate}>{entry.dateLabel.split(" — ")[1]}</time> : "Present"}</p>
               {entry.current && <span className="current-status">Current</span>}
             </div>
             <div className="experience-entry-content">

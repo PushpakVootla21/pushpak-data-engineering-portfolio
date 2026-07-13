@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const sameAs = [siteConfig.linkedinUrl, siteConfig.githubUrl].filter((url): url is string => Boolean(url));
+  const sameAs = [siteConfig.linkedinUrl].filter((url): url is string => Boolean(url));
   const personSchema = siteConfig.siteUrl ? { "@context": "https://schema.org", "@type": "Person", name: profile.name, jobTitle: profile.professionalTitle, url: siteConfig.siteUrl, email: `mailto:${profile.email}`, ...(sameAs.length ? { sameAs } : {}), address: { "@type": "PostalAddress", addressLocality: "Chennai", addressRegion: "Tamil Nadu", addressCountry: "India" }, knowsAbout: ["Azure Data Factory", "Azure Databricks", "Microsoft Fabric", "PySpark", "Delta Lake", "ADLS Gen2", "Data Engineering"] } : null;
   return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to content</a><Navbar /><main id="main-content">{children}</main><Footer />{personSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema).replace(/</g, "\\u003c") }} />}</body></html>;
 }

@@ -1,6 +1,6 @@
 # GitHub Profile and Repository Update
 
-Prepared for owner action. No GitHub profile or repository was changed.
+Archived owner reference. The portfolio intentionally does not expose GitHub profile or repository destinations; do not enable GitHub actions on the public site.
 
 ## Profile README Draft
 
@@ -37,7 +37,7 @@ https://pushpakvootla.cloud
 - Email: vootlapushpakwork2001@gmail.com
 ```
 
-Publish the portfolio URL only after production verification. Add complete case-study links to the three featured entries at that time. Confirmed GitHub profile: `https://github.com/PushpakVootla21`.
+Publish the portfolio URL only after production verification. Public recruiter journeys should use LinkedIn and portfolio case studies.
 
 ## Repository About Descriptions
 
@@ -58,6 +58,6 @@ For each genuine public repository:
 - [ ] Available architecture diagrams are included
 - [ ] No empty sections or broken links remain
 - [ ] No credentials, private identifiers or internal environment details appear
-- [ ] Repository visibility and link are verified before enabling portfolio GitHub actions
+- [ ] Repository material does not expose credentials, private identifiers or internal environment details
 
-Do not create links for repositories that are private, missing or unverified.
+Do not add repository destinations to the public portfolio.

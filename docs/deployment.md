@@ -23,7 +23,7 @@
 | Robots | `/robots.txt`; production indexing requires `VERCEL_ENV=production` |
 | Deployment date | Pending |
 | Git commit hash | Release status commit `443e63b` pushed on `main`; documentation status update follows |
-| Known warnings | No automated test suite; favicon, social preview, final owner resume, GitHub repository and Vercel account pending |
+| Known warnings | No automated test suite; favicon and social preview remain optional |
 
 ## Vercel Handoff
 
@@ -69,8 +69,7 @@ After the apex domain is live:
 
 - [ ] Update LinkedIn portfolio URL
 - [ ] Update LinkedIn Featured section
-- [ ] Update GitHub profile README
-- [ ] Update GitHub repository About URL
+- [x] Public recruiter journey limited to LinkedIn and portfolio case studies
 - [ ] Confirm the resume portfolio URL
 - [ ] Update job portal profiles
 - [ ] Update email signature

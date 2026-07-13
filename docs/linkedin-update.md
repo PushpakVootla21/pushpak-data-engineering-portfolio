@@ -29,7 +29,7 @@ Selected portfolio work includes:
 
 Portfolio: `https://pushpakvootla.cloud` (publish after production verification)
 
-GitHub: `https://github.com/PushpakVootla21`
+Portfolio: `https://pushpakvootla.cloud`
 
 I am open to relevant Azure Data Engineering opportunities and professional networking discussions.
 
@@ -56,7 +56,7 @@ I am open to relevant Azure Data Engineering opportunities and professional netw
    `https://pushpakvootla.cloud/projects/validation-first-fabric-lakehouse-ingestion`
 4. **Azure Data Engineering Repositories**  
    Supporting project repositories, documentation and implementation notes.  
-   `https://github.com/PushpakVootla21`
+   `https://pushpakvootla.cloud/projects`
 
 Do not publish the portfolio links until the custom domain is verified.
 

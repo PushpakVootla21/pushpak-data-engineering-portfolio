@@ -31,7 +31,6 @@ const discussionAreas = [
 export default function ContactPage() {
   const gmailComposeUrl = getGmailComposeUrl(profile.email, "Azure Data Engineering Opportunity");
   const linkedinUrl = isValidExternalUrl(profile.linkedinUrl) ? profile.linkedinUrl : null;
-  const githubUrl = isValidExternalUrl(profile.githubUrl) ? profile.githubUrl : null;
   const portfolioUrl = isValidExternalUrl(profile.portfolioUrl) ? profile.portfolioUrl : siteConfig.siteUrl;
 
   return (
@@ -50,14 +49,12 @@ export default function ContactPage() {
         <div className="contact-action-grid">
           <article><h3>Email</h3><p>For Azure Data Engineering roles, interview discussions and relevant professional opportunities.</p><ExternalLink className="button-link primary" href={gmailComposeUrl}>Email Pushpak Vootla using Gmail</ExternalLink></article>
           {linkedinUrl && <article><h3>LinkedIn</h3><p>Connect for professional networking, hiring discussions and data engineering content.</p><ExternalLink className="button-link secondary" href={linkedinUrl}>Connect with Pushpak Vootla on LinkedIn</ExternalLink></article>}
-          {githubUrl && <article><h3>GitHub</h3><p>Explore repositories, implementation notes and supporting project code.</p><ExternalLink className="button-link secondary" href={githubUrl}>Review Pushpak Vootla on GitHub</ExternalLink></article>}
           <article><h3>Resume</h3><p>Review my professional experience, technical skills, certifications and selected Azure Data Engineering projects, with a PDF download available on the resume page.</p><Button href="/resume" variant="secondary">View Resume</Button></article>
         </div>
         <dl className="professional-contact-list">
           <div><dt>Email</dt><dd><ExternalLink href={gmailComposeUrl}>{profile.email}</ExternalLink></dd></div>
           <div><dt>Location</dt><dd>{profile.location}</dd></div>
           {linkedinUrl && <div><dt>LinkedIn</dt><dd><ExternalLink href={linkedinUrl}>View Pushpak Vootla’s LinkedIn profile</ExternalLink></dd></div>}
-          {githubUrl && <div><dt>GitHub</dt><dd><ExternalLink href={githubUrl}>View Pushpak Vootla’s GitHub profile</ExternalLink></dd></div>}
           {portfolioUrl && <div><dt>Portfolio</dt><dd><ExternalLink href={portfolioUrl}>Visit Pushpak Vootla’s portfolio</ExternalLink></dd></div>}
         </dl>
       </SectionContainer>

@@ -8,7 +8,7 @@
 - **Production domain:** Preferred `https://pushpakvootla.cloud`; not yet deployed or verified
 - **Overall release status:** **NOT READY FOR SHARING**
 
-The local release candidate is functional, content-safe and pushed to the public GitHub repository. Recruiter-sharing approval is withheld because no production deployment exists and the final owner resume replacement is pending.
+The local release candidate is functional and content-safe. Public recruiter journeys intentionally use LinkedIn and portfolio case studies rather than GitHub destinations.
 
 ## Critical Issues
 
@@ -29,7 +29,7 @@ The local release candidate is functional, content-safe and pushed to the public
 - Favicon
 - Social-preview image
 - Credential-verification URLs
-- Public project repository URLs
+- Optional additional project evidence hosted within the portfolio
 
 ## Route Review
 
@@ -45,7 +45,7 @@ No phone number, WhatsApp link, home address, client name, PHE wording, credenti
 
 ## Resume
 
-The web resume, print route and two-page selectable-text PDF are available locally. Dates, education, certifications, projects and portfolio links align with the site. Verified LinkedIn and GitHub profile links are configured; the owner will replace the generated PDF with the final resume before launch.
+The web resume, print route and two-page selectable-text PDF are available locally. Dates, education, certifications, projects, portfolio links and the verified LinkedIn profile align with the site; GitHub destinations are intentionally omitted.
 
 ## Assets
 
@@ -69,7 +69,7 @@ Case-study pages remain server components. Only navigation and project filtering
 
 ## Recruiter Journeys
 
-Internal local journeys between Home, Projects, case studies, architecture, Experience, Resume and Contact are complete and avoid forced downloads. Verified LinkedIn and GitHub profile URLs are configured; complete external recruiter journeys still require the new production deployment.
+Internal local journeys between Home, Projects, case studies, architecture, Experience, Resume and Contact are complete and avoid forced downloads. LinkedIn is the sole public external professional profile.
 
 ## Technical Interviewer Review
 

@@ -36,7 +36,7 @@ Only locally verified items are checked. External and production actions remain 
 - [x] Resume and PDF reviewed locally
 - [x] Contact path reviewed locally
 - [ ] LinkedIn journey tested with published links
-- [ ] GitHub journey tested with published links
+- [ ] LinkedIn-to-portfolio recruiter journey tested
 
 ## Professional Profiles
 - [ ] LinkedIn headline updated
@@ -44,8 +44,7 @@ Only locally verified items are checked. External and production actions remain 
 - [ ] LinkedIn experience updated
 - [ ] LinkedIn Featured section updated
 - [ ] LinkedIn skills reordered
-- [ ] GitHub profile README updated
-- [ ] Repository About links updated
+- [x] Public GitHub destinations intentionally omitted from the portfolio
 - [ ] Job portals updated
 - [ ] Email signature updated
 

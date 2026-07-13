@@ -59,7 +59,7 @@ export function ResumeDocument() {
         <section><h2>Education</h2>{profile.education.map((item) => <div key={item.institution}><h3>{item.qualification}, {item.field}</h3><p>{item.institution} | {item.dateLabel}</p></div>)}</section>
       </div>
 
-      <section className="resume-document-links"><h2>Professional Links</h2><p><a href={portfolioUrl}>Portfolio: {portfolioUrl.replace(/^https?:\/\//, "")}</a>{profile.linkedinUrl && <> | <a href={profile.linkedinUrl}>LinkedIn</a></>}{profile.githubUrl && <> | <a href={profile.githubUrl}>GitHub</a></>}</p></section>
+      <section className="resume-document-links"><h2>Professional Links</h2><p><a href={portfolioUrl}>Portfolio: {portfolioUrl.replace(/^https?:\/\//, "")}</a>{profile.linkedinUrl && <> | <a href={profile.linkedinUrl}>LinkedIn</a></>}</p></section>
     </article>
   );
 }

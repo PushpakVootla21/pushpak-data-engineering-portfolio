@@ -18,7 +18,7 @@ export function validatePortfolioContent() {
   if (profile.certifications.some((certification) => !certification.name.trim())) throw new Error("Every certification requires a name.");
   if (skillGroups.some((group) => !group.title.trim() || group.skills.length === 0)) throw new Error("Every skill group requires a title and at least one skill.");
 
-  const externalUrls = [profile.linkedinUrl, profile.githubUrl, profile.portfolioUrl, ...profile.certifications.map((certification) => certification.credentialUrl)].filter((url): url is string => Boolean(url));
+  const externalUrls = [profile.linkedinUrl, profile.portfolioUrl, ...profile.certifications.map((certification) => certification.credentialUrl)].filter((url): url is string => Boolean(url));
   if (externalUrls.some((url) => !isValidExternalUrl(url))) throw new Error("Configured external URLs must use HTTPS.");
   if (profile.resumeFile && !isValidResumePath(profile.resumeFile)) throw new Error("The configured resume must be a PDF under /resume/.");
 }
