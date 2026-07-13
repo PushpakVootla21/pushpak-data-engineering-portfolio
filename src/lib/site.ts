@@ -10,7 +10,7 @@ export const profile: Profile = {
   linkedinUrl: "https://www.linkedin.com/in/pushpakvootla",
   portfolioUrl: "https://pushpakvootla.cloud",
   resumeFile: "/resume/pushpak-vootla-resume.pdf",
-  profileImage: null,
+  profileImage: "/images/profile/pushpak-vootla.webp",
   brandLabel: "Azure Data Engineering",
   heroLabel: "Azure Data Engineer · Chennai, India",
   headline: "Building Reliable Data Pipelines and Lakehouse Platforms on Azure",
