@@ -31,8 +31,8 @@ export function ProjectCard({ project, projectNumber, compact = false }: Project
       </div>
       <div className="project-actions">
         {project.caseStudyAvailable ? (
-          <Link className="text-link" href={`/projects/${project.slug}`}>
-            View Case Study: {project.title}
+          <Link className="text-link" href={`/projects/${project.slug}`} aria-label={`View case study: ${project.title}`}>
+            View Case Study
           </Link>
         ) : (
           <span className="case-study-status">Detailed case study coming next</span>

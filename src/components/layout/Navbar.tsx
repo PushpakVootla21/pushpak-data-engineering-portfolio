@@ -49,10 +49,11 @@ export function Navbar() {
           className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-slate-300 text-slate-700 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azure-600 md:hidden"
           aria-controls="mobile-navigation"
           aria-expanded={isOpen}
-          aria-label="Toggle navigation menu"
+          aria-haspopup="true"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           onClick={() => setIsOpen((current) => !current)}
         >
-          <span className="relative h-5 w-5">
+          <span className="relative h-5 w-5" aria-hidden="true">
             <span
               className={[
                 "absolute left-0 top-1 block h-0.5 w-5 bg-current transition",

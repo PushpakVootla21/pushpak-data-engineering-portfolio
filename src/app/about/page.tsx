@@ -36,7 +36,7 @@ export default function AboutPage() {
               <p>Alongside professional implementation work, I develop portfolio case studies to explore Microsoft Fabric, Mapping Data Flows, validation-first ingestion and maintainable data-quality controls.</p>
             </div>
           </div>
-          {profile.profileImage && <Image className="profile-photo" src={profile.profileImage} alt="Pushpak Vootla, Azure Data Engineer" width={480} height={600} priority />}
+          {profile.profileImage && <Image className="profile-photo" src={profile.profileImage} alt="Pushpak Vootla, Azure Data Engineer" width={900} height={900} sizes="(max-width: 680px) 220px, 300px" />}
         </div>
       </header>
       <SectionContainer eyebrow="Working Principles" title="How I Approach Data Engineering">
@@ -45,7 +45,7 @@ export default function AboutPage() {
       <SectionContainer className="section-muted" eyebrow="Capabilities" title="Current Technical Focus" description="Technologies and practices I currently use or continue to develop through implementation and portfolio work.">
         <div className="technology-grid about-skill-grid">{skillGroups.map((group) => <article className="technology-group" key={group.id}><h3>{group.title}</h3><p className="skill-group-description">{group.description}</p><div className="tag-list">{group.skills.map((skill) => <Tag key={skill.id}>{skill.name}</Tag>)}</div></article>)}</div>
       </SectionContainer>
-      <SectionContainer eyebrow="Credentials" title="Certifications" description="Professional certifications and learning credentials across Azure, AWS and supporting delivery tools.">
+      <SectionContainer id="certifications" eyebrow="Credentials" title="Certifications" description="Professional certifications and learning credentials across Azure, AWS and supporting delivery tools.">
         <div className="certification-grid about-certifications">{profile.certifications.map((certification, index) => <article className={index === profile.certifications.length - 1 ? "secondary-credential" : undefined} key={certification.id}><p>{certification.issuer}</p><h3>{certification.name}</h3><span>{certification.status}</span></article>)}</div>
       </SectionContainer>
       <SectionContainer eyebrow="Next Steps" title="Career Direction">

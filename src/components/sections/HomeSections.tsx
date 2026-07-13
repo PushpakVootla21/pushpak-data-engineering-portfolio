@@ -45,8 +45,22 @@ export function ProfessionalProfileSection() {
           <div><span>Target role</span><strong>{profile.professionalTitle}</strong></div>
           <div><span>Location</span><strong>{profile.location}</strong></div>
           <div><span>Experience</span><strong>3+ years of professional experience</strong></div>
-          <div><span>Credentials</span><strong>{profile.certifications.length} completed certifications and badges</strong></div>
         </aside>
+      </div>
+    </SectionContainer>
+  );
+}
+
+export function CertificationSnapshotSection() {
+  const featuredCertifications = profile.certifications.slice(0, 3);
+
+  return (
+    <SectionContainer className="section-muted certification-snapshot-section" eyebrow="Credentials" title="Certified Across Azure, AWS and Delivery Tools" description={`${profile.certifications.length} completed certifications and badges support my cloud, data and delivery foundation.`}>
+      <div className="certification-snapshot">
+        <ul>
+          {featuredCertifications.map((certification) => <li key={certification.id}><span>{certification.issuer}</span><strong>{certification.name}</strong></li>)}
+        </ul>
+        <div className="section-action"><Button href="/about#certifications" variant="secondary">View Certifications</Button></div>
       </div>
     </SectionContainer>
   );

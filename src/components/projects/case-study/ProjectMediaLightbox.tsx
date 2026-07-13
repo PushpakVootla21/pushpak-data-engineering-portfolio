@@ -94,7 +94,6 @@ export function ProjectMediaLightboxProvider({ media, children }: { media: Proje
                   width={activeItem.width}
                   height={activeItem.height}
                   sizes="100vw"
-                  unoptimized
                   onError={() => setImageFailed(true)}
                 />
               ) : (
@@ -132,11 +131,11 @@ export function ProjectMediaTrigger({ asset, sizes, className }: { asset: Projec
       type="button"
       className={["project-media-trigger", className].filter(Boolean).join(" ")}
       onClick={(event) => context.openMedia(asset.id, event.currentTarget)}
-      aria-label={`Open ${asset.title} in image viewer`}
-      title={`Open ${asset.title}`}
+      aria-label={`Open full-size ${asset.title}`}
+      title={`Open full-size ${asset.title}`}
     >
       {!imageFailed ? (
-        <Image src={asset.src} alt={asset.alt} width={asset.width} height={asset.height} sizes={sizes} unoptimized onError={() => setImageFailed(true)} />
+        <Image src={asset.src} alt={asset.alt} width={asset.width} height={asset.height} sizes={sizes} onError={() => setImageFailed(true)} />
       ) : (
         <span className="media-image-fallback" role="status">Project image unavailable</span>
       )}

@@ -11,7 +11,7 @@ export function ProjectNavigation({ previousProject, nextProject }: ProjectNavig
     <section className="project-navigation-section">
       <div className="case-study-section-inner">
         <div className="project-navigation-actions">
-          <Link className="button-link secondary" href="/projects">Back to All Projects</Link>
+          <Link className="button-link secondary" href="/projects">Back to Projects</Link>
         </div>
         <nav className="adjacent-projects" aria-label="Adjacent project case studies">
           {previousProject && <Link className="previous-project" href={`/projects/${previousProject.slug}`}><span>Previous Project</span><strong>{previousProject.title}</strong></Link>}

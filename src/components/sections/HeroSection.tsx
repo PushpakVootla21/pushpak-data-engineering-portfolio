@@ -29,7 +29,7 @@ export function HeroSection() {
             <p className="hero-supporting">{profile.supportingIntroduction}</p>
             <div className="availability"><span aria-hidden="true" />{profile.availability}</div>
             <div className="hero-actions primary-actions">
-              <Button href="/projects">Explore Projects</Button>
+              <Button href="/projects">View Projects</Button>
               <Button href="/resume" variant="secondary">View Resume</Button>
               <Button href="/contact" variant="secondary">Contact Me</Button>
             </div>
