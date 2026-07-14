@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/Button";
+import { CertificationCard } from "@/components/certifications/CertificationCard";
+import { HorizontalCarousel } from "@/components/ui/HorizontalCarousel";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { Tag } from "@/components/ui/Tag";
 import { ProjectCard } from "@/components/projects/ProjectCard";
@@ -18,7 +20,9 @@ export function TechnologyStackSection() {
 export function FeaturedProjectsSection() {
   return (
     <SectionContainer id="projects" className="section-muted" eyebrow="Selected Work" title="Azure Data Engineering Case Studies" description="Hands-on projects demonstrating ingestion design, validation, incremental processing, lakehouse workflows and production-oriented controls.">
-      <div className="project-grid">{featuredProjects.map((project, index) => <ProjectCard key={project.id} project={project} projectNumber={index + 1} compact />)}</div>
+      <HorizontalCarousel className="featured-projects-carousel" trackClassName="featured-projects-track" itemCount={featuredProjects.length} label="Featured Azure Data Engineering case studies" previousLabel="Previous case study" nextLabel="Next case study">
+        {featuredProjects.map((project, index) => <ProjectCard key={project.id} project={project} projectNumber={index + 1} compact />)}
+      </HorizontalCarousel>
       <div className="section-action"><Button href="/projects" variant="secondary">Explore Projects</Button></div>
     </SectionContainer>
   );
@@ -52,16 +56,12 @@ export function ProfessionalProfileSection() {
 }
 
 export function CertificationSnapshotSection() {
-  const featuredCertifications = profile.certifications.slice(0, 3);
-
   return (
     <SectionContainer className="section-muted certification-snapshot-section" eyebrow="Credentials" title="Certified Across Azure, AWS and Delivery Tools" description={`${profile.certifications.length} completed certifications and badges support my cloud, data and delivery foundation.`}>
-      <div className="certification-snapshot">
-        <ul>
-          {featuredCertifications.map((certification) => <li key={certification.id}><span>{certification.issuer}</span><strong>{certification.name}</strong></li>)}
-        </ul>
-        <div className="section-action"><Button href="/about#certifications" variant="secondary">View Certifications</Button></div>
-      </div>
+      <HorizontalCarousel className="certification-carousel" trackClassName="certification-carousel-track" itemCount={profile.certifications.length} label="Professional certifications" previousLabel="Previous certification" nextLabel="Next certification">
+        {profile.certifications.map((certification) => <CertificationCard key={certification.id} certification={certification} />)}
+      </HorizontalCarousel>
+      <div className="section-action"><Button href="/about#certifications" variant="secondary">View Certifications</Button></div>
     </SectionContainer>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { CertificationCard } from "@/components/certifications/CertificationCard";
 import { Button } from "@/components/ui/Button";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { Tag } from "@/components/ui/Tag";
@@ -46,7 +47,7 @@ export default function AboutPage() {
         <div className="technology-grid about-skill-grid">{skillGroups.map((group) => <article className="technology-group" key={group.id}><h3>{group.title}</h3><p className="skill-group-description">{group.description}</p><div className="tag-list">{group.skills.map((skill) => <Tag key={skill.id}>{skill.name}</Tag>)}</div></article>)}</div>
       </SectionContainer>
       <SectionContainer id="certifications" eyebrow="Credentials" title="Certifications" description="Professional certifications and learning credentials across Azure, AWS and supporting delivery tools.">
-        <div className="certification-grid about-certifications">{profile.certifications.map((certification, index) => <article className={index === profile.certifications.length - 1 ? "secondary-credential" : undefined} key={certification.id}><p>{certification.issuer}</p><h3>{certification.name}</h3><span>{certification.status}</span></article>)}</div>
+        <div className="certification-grid about-certifications">{profile.certifications.map((certification) => <CertificationCard key={certification.id} certification={certification} />)}</div>
       </SectionContainer>
       <SectionContainer eyebrow="Next Steps" title="Career Direction">
         <div className="career-direction"><p>I am focused on Azure Data Engineering roles where I can contribute to reliable ingestion, transformation, lakehouse processing and operationally clear data platforms.</p><p>I am particularly interested in opportunities involving Azure Data Factory, Microsoft Fabric, Azure Databricks, PySpark, Delta Lake and metadata-driven data engineering.</p></div>

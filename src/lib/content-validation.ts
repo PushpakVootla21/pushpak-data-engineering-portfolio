@@ -15,7 +15,9 @@ export function validatePortfolioContent() {
   assertUnique(skillGroups.flatMap((group) => group.skills.map((skill) => skill.id)), "skill IDs");
 
   if (projects.some((project) => !project.title.trim() || (project.caseStudyAvailable && !project.caseStudy))) throw new Error("Every published project requires a title and case-study content.");
-  if (profile.certifications.some((certification) => !certification.name.trim())) throw new Error("Every certification requires a name.");
+  if (profile.certifications.some((certification) => !certification.name.trim() || !certification.issuer.trim())) throw new Error("Every certification requires a name and issuer.");
+  if (profile.certifications.some((certification) => !certification.credentialUrl.trim())) throw new Error("Every certification requires a credential URL.");
+  if (profile.certifications.some((certification) => !certification.badgeImage.startsWith("/images/certifications/"))) throw new Error("Every certification requires a local badge image.");
   if (skillGroups.some((group) => !group.title.trim() || group.skills.length === 0)) throw new Error("Every skill group requires a title and at least one skill.");
 
   const externalUrls = [profile.linkedinUrl, profile.portfolioUrl, ...profile.certifications.map((certification) => certification.credentialUrl)].filter((url): url is string => Boolean(url));

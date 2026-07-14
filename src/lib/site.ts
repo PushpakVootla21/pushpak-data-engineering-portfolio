@@ -89,10 +89,13 @@ export const profile: Profile = {
     },
   ],
   certifications: [
-    { id: "microsoft-azure-data-fundamentals", name: "Microsoft Certified: Azure Data Fundamentals", issuer: "Microsoft", credentialUrl: null, credentialId: null, status: "Completed" },
-    { id: "microsoft-azure-ai-fundamentals", name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", credentialUrl: null, credentialId: null, status: "Completed" },
-    { id: "aws-data-engineer-associate", name: "AWS Certified Data Engineer — Associate", issuer: "Amazon Web Services", credentialUrl: null, credentialId: null, status: "Completed" },
-    { id: "atlassian-jira-fundamentals", name: "Jira Fundamentals Badge", issuer: "Atlassian", credentialUrl: null, credentialId: null, status: "Completed" },
+    { id: "microsoft-azure-fundamentals", name: "Microsoft Certified: Azure Fundamentals", issuer: "Microsoft", credentialUrl: "https://www.credly.com/badges/bc330886-43b4-4b3d-ac7a-8a17d526d667", badgeImage: "/images/certifications/microsoft-azure-fundamentals.png", credentialId: null, status: "Completed" },
+    { id: "microsoft-azure-data-fundamentals", name: "Microsoft Certified: Azure Data Fundamentals", issuer: "Microsoft", credentialUrl: "https://www.credly.com/badges/2963bd31-1acb-4194-96d9-aedd40d7546f", badgeImage: "/images/certifications/microsoft-azure-data-fundamentals.png", credentialId: null, status: "Completed" },
+    { id: "aws-data-engineer-associate", name: "AWS Certified Data Engineer – Associate", issuer: "Amazon Web Services Training and Certification", credentialUrl: "https://www.credly.com/badges/798d6f63-784a-4945-8d7e-8dc0927acff3", badgeImage: "/images/certifications/aws-data-engineer-associate.png", credentialId: null, status: "Completed" },
+    { id: "google-cloud-digital-leader", name: "Cloud Digital Leader Certification", issuer: "Google Cloud", credentialUrl: "https://www.credly.com/badges/5969dc65-eede-42fc-b259-5cd8b0ed5e3a", badgeImage: "/images/certifications/google-cloud-digital-leader.png", credentialId: null, status: "Completed" },
+    { id: "aws-cloud-practitioner", name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services Training and Certification", credentialUrl: "https://www.credly.com/badges/d250efc7-d2bf-4fe3-9548-b54113fc45be", badgeImage: "/images/certifications/aws-cloud-practitioner.png", credentialId: null, status: "Completed" },
+    { id: "microsoft-azure-ai-fundamentals", name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", credentialUrl: "https://learn.microsoft.com/en-us/users/vootlapushpak-5479/credentials/54c0fb6e1020cd53", badgeImage: "/images/certifications/microsoft-azure-ai-fundamentals.svg", credentialId: "54C0FB6E1020CD53", status: "Completed" },
+    { id: "data-engineering-essentials", name: "Data Engineering Essentials", issuer: "Coursera", credentialUrl: "https://www.credly.com/badges/2b4142f2-c5dd-48ae-8e92-0648c749f7e2", badgeImage: "/images/certifications/data-engineering-essentials.png", credentialId: null, status: "Completed" },
   ],
 };
 

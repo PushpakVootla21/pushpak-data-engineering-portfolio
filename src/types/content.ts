@@ -94,7 +94,8 @@ export interface Certification {
   id: string;
   name: string;
   issuer: string;
-  credentialUrl: OptionalUrl;
+  credentialUrl: string;
+  badgeImage: string;
   credentialId: string | null;
   status: "Completed";
 }

@@ -92,6 +92,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .skill-group-description { margin: -.35rem 0 1rem; color: var(--muted); font-size: .76rem; line-height: 1.55; }
 
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.horizontal-carousel { display: grid; width: 100%; max-width: 100%; min-width: 0; gap: 1rem; overflow: hidden; contain: layout paint; }
+.carousel-controls { display: flex; justify-content: flex-end; gap: .6rem; }
+.carousel-controls button { display: inline-grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; font-size: 1.35rem; cursor: pointer; transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast); }
+.carousel-controls button:hover:not(:disabled) { border-color: var(--accent); background: var(--accent); color: #fff; }
+.carousel-controls button:disabled { cursor: not-allowed; opacity: .38; }
+.horizontal-carousel-track { display: grid; max-width: 100%; min-width: 0; grid-auto-flow: column; gap: 1rem; overflow-x: auto; overflow-y: hidden; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-width: none; }
+.horizontal-carousel-track::-webkit-scrollbar { display: none; }
+.horizontal-carousel-track > * { scroll-snap-align: start; }
+.featured-projects-track { grid-auto-columns: calc((100% - 1rem) / 2.15); }
+.certification-carousel-track { grid-auto-columns: calc((100% - 2rem) / 3.15); }
 .project-card { display: flex; min-width: 0; flex-direction: column; gap: 1.1rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; padding: 1.6rem; box-shadow: 0 6px 18px rgba(20, 42, 52, .04); transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast); }
 .project-card:hover { border-color: #b8d3dc; box-shadow: 0 10px 24px rgba(20, 42, 52, .08); transform: translateY(-2px); }
 .project-card-heading { display: flex; align-items: flex-start; gap: .9rem; }
@@ -187,20 +197,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .resume-hero .profile-page-inner { padding-block: 3.75rem 3.5rem; }
 .resume-availability { display: inline-block; margin: 1.5rem 0 0; border-left: 3px solid #a7d1dc; background: #f1f7f9; padding: .75rem 1rem; color: #526770; font-size: .84rem; }
 .resume-project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.resume-project-list article, .certification-grid article, .education-list article { min-width: 0; border: 1px solid var(--line); border-radius: 7px; background: #fff; padding: 1.3rem; }
-.resume-project-list article > p:first-child, .certification-grid article > p:first-child, .education-list article > p:first-child { margin: 0; color: var(--accent-dark); font-size: .7rem; font-weight: 800; text-transform: uppercase; }
-.resume-project-list h3, .certification-grid h3, .education-list h3 { margin: .65rem 0 0; font-size: 1rem; line-height: 1.4; overflow-wrap: anywhere; }
+.resume-project-list article, .education-list article { min-width: 0; border: 1px solid var(--line); border-radius: 7px; background: #fff; padding: 1.3rem; }
+.resume-project-list article > p:first-child, .education-list article > p:first-child { margin: 0; color: var(--accent-dark); font-size: .7rem; font-weight: 800; text-transform: uppercase; }
+.resume-project-list h3, .education-list h3 { margin: .65rem 0 0; font-size: 1rem; line-height: 1.4; overflow-wrap: anywhere; }
 .resume-project-list h3 + p { margin: .65rem 0 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
 .resume-project-list .tag-list { margin: 1rem 0; }
-.certification-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.certification-grid article > span { display: inline-block; margin-top: .8rem; color: #547069; font-size: .72rem; font-weight: 700; }
-.certification-grid .secondary-credential { border-style: dashed; background: #fafcfc; }
-.certification-grid .text-link { display: block; margin-top: .8rem; }
-.certification-snapshot { max-width: 960px; }
-.certification-snapshot ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); list-style: none; }
-.certification-snapshot li { display: grid; min-width: 0; gap: .45rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; padding: 1.15rem; }
-.certification-snapshot li span { color: var(--accent-dark); font-size: .72rem; font-weight: 800; text-transform: uppercase; }
-.certification-snapshot li strong { font-size: .9rem; line-height: 1.45; }
+.certification-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.certification-card { display: grid; min-width: 0; min-height: 190px; grid-template-columns: 112px minmax(0, 1fr); gap: 1.15rem; align-items: center; border: 1px solid var(--line); border-radius: 7px; background: #fff; padding: 1.25rem; box-shadow: 0 6px 18px rgba(20, 42, 52, .04); }
+.certification-badge { position: relative; width: 100%; aspect-ratio: 1.5; }
+.certification-badge img { object-fit: contain; }
+.certification-card-content { display: flex; min-width: 0; min-height: 142px; flex-direction: column; align-items: flex-start; }
+.certification-card-content > p { margin: 0; color: var(--accent-dark); font-size: .7rem; font-weight: 800; line-height: 1.45; text-transform: uppercase; }
+.certification-card h3 { margin: .55rem 0 0; font-size: .98rem; line-height: 1.4; overflow-wrap: anywhere; }
+.certification-link { margin-top: auto; padding-top: .9rem; }
 .education-list { display: grid; gap: 1rem; }
 .education-list article > p:not(:first-child) { margin: .6rem 0 0; color: var(--muted); font-size: .84rem; line-height: 1.65; }
 .resume-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; font-style: normal; }
@@ -437,8 +446,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .architecture-placeholder { min-height: 240px; }
   .case-study-overview dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .principles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .certification-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-inner { grid-template-columns: 1fr auto; }
   .footer-navigation { grid-column: 1 / -1; justify-content: flex-start !important; }
+}
+
+@media (max-width: 1024px) {
+  .featured-projects-track { grid-auto-columns: 62%; }
+  .certification-carousel-track { grid-auto-columns: calc((100% - 1rem) / 2.1); }
 }
 
 @media (max-width: 680px) {
@@ -451,13 +466,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .flow-arrow { width: auto; margin: -.1rem 0; transform: rotate(90deg); justify-self: center; }
   .page-section { padding-block: 3.25rem; }
   .technology-grid, .project-grid, .three-columns, .approach-grid { grid-template-columns: 1fr; }
+  .featured-projects-track { grid-auto-columns: 88%; }
+  .certification-carousel-track { grid-auto-columns: 88%; }
+  .certification-card { grid-template-columns: 80px minmax(0, 1fr); gap: .8rem; padding: 1rem; }
+  .carousel-controls { justify-content: flex-start; }
   .projects-intro-inner { padding-block: 4.5rem 3.75rem; }
   .profile-page-inner { padding-block: 3.75rem 3.25rem; }
   .experience-entry { grid-template-columns: 1fr; }
   .experience-entry-meta { border-right: 0; border-bottom: 1px solid var(--line); }
   .about-hero-layout.has-image { grid-template-columns: 1fr; }
   .profile-photo { max-width: 220px; justify-self: center; }
-  .principles-grid, .resume-project-list, .certification-grid, .certification-snapshot ul, .resume-contact, .contact-action-grid, .two-columns { grid-template-columns: 1fr; }
+  .principles-grid, .resume-project-list, .certification-grid, .resume-contact, .contact-action-grid, .two-columns { grid-template-columns: 1fr; }
   .case-study-hero-inner { padding-block: 1.5rem 3.5rem; }
   .project-breadcrumb { margin-bottom: 2rem; }
   .case-study-toc { position: static; }
@@ -504,6 +523,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
   .project-card:hover { transform: none; }
+  .horizontal-carousel-track { scroll-behavior: auto; }
 }
 
 @page { size: A4; margin: 0; }
