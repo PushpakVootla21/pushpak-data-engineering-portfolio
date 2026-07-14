@@ -1135,4 +1135,4 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+export const featuredProjects = projects.filter((project) => project.caseStudyAvailable);

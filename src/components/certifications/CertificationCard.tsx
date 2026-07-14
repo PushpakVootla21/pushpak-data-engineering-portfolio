@@ -10,7 +10,7 @@ export function CertificationCard({ certification }: CertificationCardProps) {
   return (
     <article className="certification-card">
       <div className="certification-badge">
-        <Image src={certification.badgeImage} alt={`${certification.name} badge`} fill sizes="(max-width: 680px) 96px, 112px" />
+        <Image src={certification.badgeImage} alt={`${certification.name} badge`} fill sizes="(max-width: 680px) 112px, 148px" />
       </div>
       <div className="certification-card-content">
         <p>{certification.issuer}</p>
