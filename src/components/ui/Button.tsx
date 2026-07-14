@@ -35,6 +35,14 @@ export function Button({
     .filter(Boolean)
     .join(" ");
 
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={classes} {...props}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} className={classes} {...props}>
       {children}

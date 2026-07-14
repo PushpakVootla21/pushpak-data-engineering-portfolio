@@ -2,14 +2,24 @@ import { CaseStudySection } from "@/components/projects/case-study/CaseStudySect
 import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project } from "@/types/content";
 
-export function ProjectGallery({ project }: { project: Project }) {
+const placementTitles = {
+  implementation: "Implementation Evidence",
+  "data-quality": "Validation Evidence",
+  monitoring: "Monitoring Evidence",
+  recovery: "Recovery Evidence",
+  outcome: "Output Evidence",
+} as const;
+
+type GalleryPlacement = keyof typeof placementTitles;
+
+export function ProjectGallery({ project, placement }: { project: Project; placement: GalleryPlacement }) {
   const media = [...(project.screenshots ?? [])].filter(
-    (item): item is NonNullable<typeof item> => Boolean(item),
+    (item): item is NonNullable<typeof item> => Boolean(item) && item.placement === placement,
   );
   if (!media.length) return null;
 
   return (
-    <CaseStudySection id="project-media" title="Project Screenshots and Architecture">
+    <CaseStudySection id={`project-evidence-${placement}`} title={placementTitles[placement]}>
       <div className="project-gallery">
         {media.map((item) => (
           <figure key={item.id}>

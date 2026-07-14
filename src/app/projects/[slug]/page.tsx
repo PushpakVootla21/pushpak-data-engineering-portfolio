@@ -55,7 +55,11 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   const watermarkIndex = details.additionalSections?.findIndex((section) => section.id === "watermark-protection") ?? -1;
   const sectionsThroughWatermark = watermarkIndex >= 0 ? details.additionalSections?.slice(0, watermarkIndex + 1) : details.additionalSections;
   const sectionsAfterWatermark = watermarkIndex >= 0 ? details.additionalSections?.slice(watermarkIndex + 1) : [];
-  const projectMedia = [...(project.media ?? []), ...(project.screenshots ?? [])].filter(
+  const placementOrder = ["implementation", "data-quality", "monitoring", "recovery", "outcome"];
+  const orderedScreenshots = [...(project.screenshots ?? [])].sort(
+    (left, right) => placementOrder.indexOf(left.placement ?? "outcome") - placementOrder.indexOf(right.placement ?? "outcome"),
+  );
+  const projectMedia = [...(project.media ?? []), ...orderedScreenshots].filter(
     (asset, index, assets) => assets.findIndex((candidate) => candidate.id === asset.id) === index,
   );
 
@@ -77,7 +81,6 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
     { id: "outcome", label: "Outcome", visible: Boolean(details.outcomeSummary) },
     { id: "technology-stack", label: "Technology", visible: Boolean(details.technologyGroups?.length) },
     { id: "architecture-diagram", label: "Diagram", visible: Boolean(project.media?.some((asset) => asset.type === "architecture")) },
-    { id: "project-media", label: "Screenshots", visible: Boolean(project.screenshots?.length) },
   ].filter((item) => item.visible);
 
   return (
@@ -95,19 +98,23 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
       <DataFlowSteps details={details} />
       <ProjectMediaAssets project={project} type="sequence" sectionId="execution-sequence-diagram" />
       <ImplementationGroups details={details} />
+      <ProjectGallery project={project} placement="implementation" />
       <AdditionalCaseStudySections details={details} sections={sectionsThroughWatermark} />
       {resultFlowAssets.length > 0 && <ProjectMediaAssets project={project} type="flow" sectionId="result-flow-diagram" />}
       <AdditionalCaseStudySections details={details} sections={sectionsAfterWatermark} />
       <MetadataDesign details={details} />
       <ValidationRules details={details} />
+      <ProjectGallery project={project} placement="data-quality" />
       <SecurityControls details={details} />
       <MonitoringControls details={details} />
+      <ProjectGallery project={project} placement="monitoring" />
       <RecoveryConsiderations details={details} />
+      <ProjectGallery project={project} placement="recovery" />
       <DesignDecisions details={details} />
       <ProjectChallenges details={details} />
       <ProjectOutcome details={details} />
+      <ProjectGallery project={project} placement="outcome" />
       <TechnologyGroups details={details} />
-      <ProjectGallery project={project} />
       <ProjectNavigation
         previousProject={availableProjects[projectIndex - 1]}
         nextProject={availableProjects[projectIndex + 1]}

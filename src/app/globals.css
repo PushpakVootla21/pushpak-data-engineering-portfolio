@@ -251,6 +251,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .project-breadcrumb a { border-radius: 3px; color: var(--accent-dark); font-weight: 700; }
 .project-breadcrumb a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .case-study-hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 3rem; align-items: center; }
+.case-study-hero-grid-single { grid-template-columns: minmax(0, 900px); }
 .case-study-hero-copy { min-width: 0; }
 .case-study-hero h1 { max-width: 750px; margin: 0; font-size: clamp(2.45rem, 5vw, 4.25rem); line-height: 1.04; overflow-wrap: anywhere; }
 .case-study-summary { max-width: 720px; margin: 1.4rem 0 1.25rem; color: #3c525c; font-size: 1.05rem; line-height: 1.75; }

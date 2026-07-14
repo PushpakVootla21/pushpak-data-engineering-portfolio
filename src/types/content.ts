@@ -135,6 +135,7 @@ export interface ProjectMedia {
   width: number;
   height: number;
   featured?: boolean;
+  placement?: "implementation" | "data-quality" | "monitoring" | "recovery" | "outcome";
 }
 
 export interface ArchitectureLayer {

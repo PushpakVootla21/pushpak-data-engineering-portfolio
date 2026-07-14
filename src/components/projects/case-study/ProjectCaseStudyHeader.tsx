@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
-import { ProjectMediaTrigger } from "@/components/projects/case-study/ProjectMediaLightbox";
 import type { Project } from "@/types/content";
 
 export function ProjectBreadcrumb({ project }: { project: Project }) {
@@ -22,7 +21,7 @@ export function ProjectHero({ project }: { project: Project }) {
     <header className="case-study-hero">
       <div className="case-study-hero-inner">
         <ProjectBreadcrumb project={project} />
-        <div className="case-study-hero-grid">
+        <div className="case-study-hero-grid case-study-hero-grid-single">
           <div className="case-study-hero-copy">
             <p className="eyebrow">{project.caseStudy?.heroPlatformLabel ?? project.platform} · {project.category}</p>
             <h1>{project.title}</h1>
@@ -34,14 +33,6 @@ export function ProjectHero({ project }: { project: Project }) {
             <div className="case-study-actions">
               {architectureAsset && <Button href="#architecture-diagram" variant="ghost">View Architecture</Button>}
             </div>
-          </div>
-          <div className="architecture-media">
-            {architectureAsset ? (
-              <ProjectMediaTrigger asset={architectureAsset} sizes="(max-width: 900px) 100vw, 420px" />
-            ) : <div className="architecture-placeholder">
-              <span aria-hidden="true">Architecture</span>
-              <p>{project.caseStudy?.mediaPlaceholder ?? "Architecture diagram will be added with the detailed project documentation."}</p>
-            </div>}
           </div>
         </div>
       </div>

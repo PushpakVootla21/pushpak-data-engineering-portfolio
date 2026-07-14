@@ -11,12 +11,12 @@ export const projects: Project[] = [
       "A Microsoft Fabric ingestion workflow that discovers incoming files, validates trusted office CSV files and loads approved records into a curated Lakehouse table while routing unsupported or schema-incompatible files to quarantine.",
     businessProblem:
       "File-based ingestion becomes unreliable when every file arriving in a landing folder is treated as a valid input. Incorrectly named CSV files, non-CSV files and schema-incompatible files can enter trusted datasets unless validation and routing controls are applied before loading.",
-    technologies: ["Microsoft Fabric", "Fabric Data Factory", "Fabric Lakehouse", "Fabric Notebook", "PySpark", "Delta Lake", "CSV"],
+    technologies: ["Microsoft Fabric", "Fabric Data Factory", "Fabric Lakehouse", "Fabric Notebook", "PySpark", "CSV"],
     engineeringPatterns: [
       "File discovery and filtering",
       "Schema validation",
       "Quarantine handling",
-      "Delta upsert",
+      "Lakehouse upsert",
       "Audit metadata",
       "Archive-before-delete",
       "Pipeline notifications",
@@ -35,24 +35,24 @@ export const projects: Project[] = [
     status: "Completed",
     caseStudyAvailable: true,
     screenshots: [
-      { id: "fabric-pipeline-canvas", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/01-pipeline-canvas-overview.png", title: "Pipeline Canvas Overview", caption: "End-to-end Fabric Data Factory orchestration for discovery, validation, curated loading and controlled file handling.", alt: "Microsoft Fabric Data Factory pipeline canvas showing the complete validation-first lakehouse ingestion workflow.", width: 1600, height: 900 },
-      { id: "fabric-file-discovery", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/02-getmetadata-and-filters.png", title: "Discovery and File Filtering", caption: "Get Metadata and filter activities classify trusted office CSV candidates and unexpected inputs.", alt: "Fabric pipeline activities for landing-file discovery and trusted file filtering.", width: 1600, height: 900 },
-      { id: "fabric-valid-file-flow", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/03-foreach-valid-file-flow.png", title: "Valid File Processing", caption: "The valid-file branch processes each approved candidate independently through validation and loading.", alt: "Fabric ForEach activity showing the valid office file processing branch.", width: 1600, height: 900 },
-      { id: "fabric-schema-validation", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/04-schema-validation-notebook-step.png", title: "Schema Validation Notebook", caption: "A Fabric Notebook checks schema compatibility before trusted Lakehouse promotion.", alt: "Fabric Notebook activity used for pre-load schema validation.", width: 1600, height: 900 },
-      { id: "fabric-lakehouse-upsert", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/05-copy-to-lakehouse-upsert.png", title: "Lakehouse Upsert", caption: "Approved records are merged into the curated Lakehouse target using property_id as the match key.", alt: "Fabric Copy activity configured to upsert approved property records into a Lakehouse table.", width: 1600, height: 900 },
-      { id: "fabric-archive", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/06-archive-processed-files.png", title: "Processed File Archive", caption: "Successfully processed source files are preserved in archive before landing cleanup.", alt: "Fabric pipeline activity archiving successfully processed source files.", width: 1600, height: 900 },
-      { id: "fabric-cleanup", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/07-delete-from-landing.png", title: "Dependency-Based Landing Cleanup", caption: "Landing deletion runs only after the required archive or quarantine operation succeeds.", alt: "Fabric delete activity configured after successful preservation of the source file.", width: 1600, height: 900 },
-      { id: "fabric-notification", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/08-teams-notification-step.png", title: "Pipeline Notification", caption: "The notification step reports pipeline identity, run metadata, execution time and status.", alt: "Microsoft Fabric pipeline activity configured to send an execution notification to Microsoft Teams.", width: 1600, height: 900 },
-      { id: "fabric-table-output", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/10-lakehouse-table-output.png", title: "Curated Lakehouse Output", caption: "The trusted target contains approved business columns and operational ingestion metadata.", alt: "Microsoft Fabric Lakehouse table showing curated output from the ingestion pipeline.", width: 1600, height: 900 },
-      { id: "fabric-archive-output", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/11-archive-folder-output.png", title: "Archive Folder Output", caption: "Processed trusted files remain available for traceability and controlled reprocessing.", alt: "Microsoft Fabric Lakehouse archive folder containing processed source files.", width: 1600, height: 900 },
-      { id: "fabric-quarantine-output", type: "screenshot", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/12-quarantine-folder-output.png", title: "Quarantine Folder Output", caption: "Schema-drift and unsupported inputs are retained outside the trusted processing path for investigation.", alt: "Microsoft Fabric Lakehouse quarantine folder containing invalid and unsupported source files.", width: 1600, height: 900 },
+      { id: "fabric-pipeline-canvas", type: "screenshot", placement: "implementation", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/01-pipeline-canvas-overview.png", title: "Pipeline Canvas Overview", caption: "End-to-end Fabric Data Factory orchestration for discovery, validation, curated loading and controlled file handling.", alt: "Microsoft Fabric Data Factory pipeline canvas showing the complete validation-first lakehouse ingestion workflow.", width: 2572, height: 1234 },
+      { id: "fabric-file-discovery", type: "screenshot", placement: "implementation", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/02-getmetadata-and-filters.png", title: "Discovery and File Filtering", caption: "Get Metadata and filter activities classify trusted office CSV candidates and unexpected inputs.", alt: "Fabric pipeline activities for landing-file discovery and trusted file filtering.", width: 1262, height: 1358 },
+      { id: "fabric-valid-file-flow", type: "screenshot", placement: "implementation", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/03-foreach-valid-file-flow.png", title: "Valid File Processing", caption: "The valid-file branch processes each approved candidate independently through validation and loading.", alt: "Fabric ForEach activity showing the valid office file processing branch.", width: 2930, height: 778 },
+      { id: "fabric-schema-validation", type: "screenshot", placement: "data-quality", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/04-schema-validation-notebook-step.png", title: "Schema Validation Notebook", caption: "A Fabric Notebook checks schema compatibility before trusted Lakehouse promotion.", alt: "Fabric Notebook activity used for pre-load schema validation.", width: 3250, height: 1580 },
+      { id: "fabric-lakehouse-upsert", type: "screenshot", placement: "implementation", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/05-copy-to-lakehouse-upsert.png", title: "Lakehouse Upsert", caption: "The Fabric Copy activity upserts approved records into the curated Lakehouse target using property_id as the match key.", alt: "Fabric Copy activity configured to upsert approved property records into a Lakehouse table.", width: 1600, height: 672 },
+      { id: "fabric-archive", type: "screenshot", placement: "recovery", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/06-archive-processed-files.png", title: "Processed File Archive", caption: "Successfully processed source files are preserved in archive before landing cleanup.", alt: "Fabric pipeline activity archiving successfully processed source files.", width: 3266, height: 1296 },
+      { id: "fabric-cleanup", type: "screenshot", placement: "recovery", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/07-delete-from-landing.png", title: "Dependency-Based Landing Cleanup", caption: "Landing deletion runs only after the required archive or quarantine operation succeeds.", alt: "Fabric delete activity configured after successful preservation of the source file.", width: 1132, height: 440 },
+      { id: "fabric-notification", type: "screenshot", placement: "monitoring", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/08-teams-notification-step.png", title: "Pipeline Notification", caption: "The notification step reports pipeline identity, run metadata, execution time and status.", alt: "Microsoft Fabric pipeline activity configured to send an execution notification to Microsoft Teams.", width: 3192, height: 1544 },
+      { id: "fabric-table-output", type: "screenshot", placement: "outcome", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/10-lakehouse-table-output.png", title: "Curated Lakehouse Output", caption: "The trusted target contains approved business columns and operational ingestion metadata.", alt: "Microsoft Fabric Lakehouse table showing curated output from the ingestion pipeline.", width: 3266, height: 1760 },
+      { id: "fabric-archive-output", type: "screenshot", placement: "outcome", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/11-archive-folder-output.png", title: "Archive Folder Output", caption: "Processed trusted files remain available for traceability and controlled reprocessing.", alt: "Microsoft Fabric Lakehouse archive folder containing processed source files.", width: 3272, height: 1344 },
+      { id: "fabric-quarantine-output", type: "screenshot", placement: "outcome", src: "/projects/validation-first-fabric-lakehouse-ingestion/screenshots/12-quarantine-folder-output.png", title: "Quarantine Folder Output", caption: "Schema-drift and unsupported inputs are retained outside the trusted processing path for investigation.", alt: "Microsoft Fabric Lakehouse quarantine folder containing invalid and unsupported source files.", width: 3276, height: 1176 },
     ],
     media: [
-      { id: "fabric-validation-architecture", type: "architecture", src: "/projects/validation-first-fabric-lakehouse-ingestion/architecture.svg", title: "Validation-First Microsoft Fabric Lakehouse Ingestion", caption: "Microsoft Fabric workflow separating trusted office CSV data from invalid files before curated Lakehouse loading.", alt: "Architecture showing Microsoft Fabric Data Factory moving trusted office CSV files through PySpark validation into curated Lakehouse output, with invalid files routed to quarantine.", width: 1600, height: 900, featured: true },
+      { id: "fabric-validation-architecture", type: "architecture", src: "/projects/validation-first-fabric-lakehouse-ingestion/architecture.svg", title: "Validation-First Microsoft Fabric Lakehouse Ingestion", caption: "Fabric Data Factory discovers office_*.csv files, validates candidates in a Fabric Notebook and branches approved records to property_id-based Lakehouse upsert while invalid files move to quarantine.", alt: "Architecture showing office CSV files moving through Fabric Data Factory, Lakehouse landing and a PySpark validation notebook, then branching to a property ID based Lakehouse upsert or quarantine.", width: 1600, height: 900, featured: true },
     ],
     seo: {
       description:
-        "A Microsoft Fabric case study covering trusted file filtering, notebook-based schema validation, quarantine handling, Delta upsert and controlled archive-before-delete processing.",
+        "A Microsoft Fabric case study covering trusted file filtering, notebook-based schema validation, quarantine handling, Lakehouse upsert and controlled archive-before-delete processing.",
       openGraphTitle: "Validation-First Microsoft Fabric Lakehouse Ingestion",
       openGraphDescription:
         "Explore a Microsoft Fabric ingestion workflow that validates office CSV files before curated Lakehouse loading and routes invalid inputs to controlled quarantine paths.",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
         { name: "File Discovery", description: "The pipeline reads the landing directory and retrieves the available file list.", order: 2, technologies: ["Fabric Data Factory", "File-discovery activity"] },
         { name: "File Classification", description: "Files are classified into trusted office CSV candidates, wrongly named CSV files and non-CSV files.", order: 3, technologies: ["Fabric Data Factory", "Filter activities"] },
         { name: "Schema Validation", description: "A Fabric Notebook validates the expected file structure and identifies schema-compatible and schema-drift inputs.", order: 4, technologies: ["Fabric Notebook", "PySpark"] },
-        { name: "Curated Lakehouse Load", description: "Approved columns from validated files are loaded into the curated Lakehouse table using an upsert based on property_id.", order: 5, technologies: ["Fabric Lakehouse", "Delta Lake"] },
+        { name: "Curated Lakehouse Load", description: "Approved columns from validated files are loaded into the curated Lakehouse table using an upsert based on property_id.", order: 5, technologies: ["Fabric Lakehouse", "Copy activity upsert"] },
         { name: "Quarantine and Archive", description: "Schema-drift and unsupported files are moved to quarantine, while valid processed files are moved to archive.", order: 6, technologies: ["Fabric Data Factory", "Lakehouse file storage"] },
         { name: "Cleanup and Notification", description: "Landing files are deleted only after the required archive or quarantine operation succeeds, and execution results are sent through pipeline notifications.", order: 7, technologies: ["Fabric Data Factory", "Microsoft Teams notification integration"] },
       ],
@@ -122,7 +122,7 @@ export const projects: Project[] = [
         { title: "Identify Trusted Office CSV Files", description: "Files matching the office_*.csv convention are treated as candidate files for schema validation.", output: "Trusted filename candidates" },
         { title: "Separate Unexpected and Unsupported Files", description: "Wrongly named CSV files and non-CSV files are identified separately so they cannot proceed through the trusted loading path.", output: "Files requiring quarantine handling" },
         { title: "Validate Candidate File Schema", description: "The validation notebook checks candidate files against the expected schema and separates schema-compatible files from schema-drift files.", technologies: ["Fabric Notebook", "PySpark"] },
-        { title: "Load Approved Records into the Lakehouse", description: "Approved columns from validated files are loaded into the curated Lakehouse table. Existing records are updated and new records are inserted using property_id as the upsert key.", output: "Curated Delta table" },
+        { title: "Load Approved Records into the Lakehouse", description: "Approved columns from validated files are loaded into the curated Lakehouse table. Existing records are updated and new records are inserted using property_id as the upsert key.", output: "Curated Lakehouse table" },
         { title: "Archive or Quarantine Processed Files", description: "Successfully processed valid files move to archive. Schema-drift, wrongly named CSV and non-CSV files move to the appropriate quarantine location.", decisionOutcome: "Valid and loaded → Archive; schema drift → Schema quarantine; unexpected CSV → Invalid-name quarantine; unsupported format → Non-CSV quarantine." },
         { title: "Clean the Landing Area", description: "A landing file is deleted only after its required archive or quarantine operation completes successfully.", operationalPurpose: "Reduce the risk of file loss during partial failure." },
         { title: "Send Pipeline Notification", description: "The pipeline sends execution-status information through the configured Microsoft Teams notification flow." },
@@ -132,7 +132,7 @@ export const projects: Project[] = [
         { title: "Trusted File Contract", explanation: "The office_*.csv naming convention acts as the first validation layer.", details: ["Matching files become validation candidates.", "Wrongly named CSV files are separated.", "Non-CSV files are routed away from the trusted path.", "Filename validation is not treated as proof of schema compatibility."] },
         { title: "Notebook-Based Schema Validation", explanation: "A Fabric Notebook reads candidate files and checks whether their structure matches the expected schema.", details: ["Schema-compatible files continue to curated loading.", "Schema-drift files are identified before trusted promotion.", "Validation happens before the curated table is modified.", "Notebook output is used by the pipeline to determine routing."] },
         { title: "Curated Lakehouse Loading", explanation: "Validated records are loaded into the curated Lakehouse table using an upsert pattern.", details: ["property_id is the business key used for matching.", "Existing records can be updated.", "New records can be inserted.", "insert_time is added as ingestion metadata.", "Only approved target columns are loaded."] },
-        { title: "Sensitive-Column Exclusion", explanation: "The curated mapping excludes source fields that should not be promoted into the trusted target.", details: ["agent_personal_email is excluded.", "internal_crm_ref is excluded.", "This demonstrates deliberate target-column selection and basic sensitive data handling."] },
+        { title: "Sensitive-Column Exclusion", explanation: "The curated mapping excludes source fields that should not be promoted into the trusted target.", details: ["Personal-contact fields are excluded.", "Internal-reference fields are excluded.", "This demonstrates deliberate target-column selection and basic sensitive data handling."] },
         { title: "Controlled File Lifecycle", explanation: "Processed files follow archive or quarantine paths before they are removed from the landing folder.", details: ["Valid files are archived after successful loading.", "Schema-drift files are quarantined.", "Wrongly named CSV files are quarantined.", "Non-CSV files are quarantined.", "Delete activities depend on successful movement to the required destination."] },
         { title: "Notifications", explanation: "Pipeline status is sent through the configured Teams notification integration to provide operational visibility." },
       ],
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       ],
       securitySectionTitle: "Data Protection Considerations",
       securityControls: [
-        { name: "Sensitive-column exclusion", purpose: "Prevent selected internal or personal source fields from entering the trusted analytical target.", behaviour: "The curated mapping excludes agent_personal_email and internal_crm_ref.", clarification: "This is a target-data minimisation decision within the project, not a complete security, privacy or governance programme." },
+        { name: "Sensitive-column exclusion", purpose: "Prevent selected internal or personal source fields from entering the trusted analytical target.", behaviour: "The curated mapping excludes personal-contact and internal-reference fields.", clarification: "This is a target-data minimisation decision within the project, not a complete security, privacy or governance programme." },
       ],
       monitoringControls: [
         { name: "Pipeline Notifications", purpose: "Provide visibility into pipeline execution results.", behaviour: "The pipeline uses the configured Microsoft Teams notification integration to report run status." },
@@ -193,9 +193,9 @@ export const projects: Project[] = [
       technologyGroups: [
         { label: "Orchestration", technologies: ["Microsoft Fabric Data Factory"] },
         { label: "Validation and processing", technologies: ["Fabric Notebook", "PySpark"] },
-        { label: "Storage", technologies: ["Fabric Lakehouse", "Delta Lake", "Lakehouse Files"] },
+        { label: "Storage", technologies: ["Fabric Lakehouse", "Lakehouse Files"] },
         { label: "Source format", technologies: ["CSV"] },
-        { label: "Data-management patterns", technologies: ["Schema validation", "Quarantine handling", "Delta upsert", "Audit metadata", "Archive-before-delete"] },
+        { label: "Data-management patterns", technologies: ["Schema validation", "Quarantine handling", "Lakehouse upsert", "Audit metadata", "Archive-before-delete"] },
         { label: "Operational visibility", technologies: ["Microsoft Teams notifications"] },
       ],
     },
@@ -525,7 +525,7 @@ export const projects: Project[] = [
     featured: true,
     caseStudyAvailable: true,
     media: [
-      { id: "metadata-adf-architecture", type: "architecture", src: "/projects/metadata-driven-adf-ingestion/architecture.svg", title: "Metadata-Driven Multi-Source ADF Ingestion", caption: "Configuration-driven ADF ingestion pattern for SQL, REST or HTTP and file-based sources landing in organised ADLS Gen2 storage.", alt: "Architecture showing metadata-driven Azure Data Factory ingestion from SQL, REST and file-based sources into organised ADLS Gen2 storage.", width: 1600, height: 900, featured: true },
+      { id: "metadata-adf-architecture", type: "architecture", src: "/projects/metadata-driven-adf-ingestion/architecture.svg", title: "Metadata-Driven Multi-Source ADF Ingestion", caption: "ADLS metadata controls reusable ADF routing while SQL, REST or HTTP and file data move independently into organised ADLS Gen2 storage.", alt: "Architecture separating an ADLS metadata control flow from parallel SQL, REST and file business-data paths through Azure Data Factory into ADLS Gen2.", width: 1600, height: 900, featured: true },
     ],
     seo: {
       title: "Metadata-Driven Azure Data Factory Ingestion | Pushpak Vootla",
@@ -742,7 +742,7 @@ export const projects: Project[] = [
     featured: true,
     caseStudyAvailable: true,
     media: [
-      { id: "retail-validation-architecture", type: "architecture", src: "/projects/retail-databricks-validation-pipeline/architecture.svg", title: "Retail Data Validation with ADF and Databricks", caption: "Retail order validation pattern separating approved reporting records from duplicate or invalid-status data.", alt: "Architecture showing retail CSV and JSON data moving from Amazon S3 through ADF and Databricks validation into valid reporting output and rejected-data storage.", width: 1600, height: 900, featured: true },
+      { id: "retail-validation-architecture", type: "architecture", src: "/projects/retail-databricks-validation-pipeline/architecture.svg", title: "Retail Data Validation with ADF and Databricks", caption: "ADF stages Amazon S3 files in ADLS Gen2; Databricks then branches approved records to Azure SQL reporting and rejected records to ADLS Gen2.", alt: "Architecture showing retail CSV and JSON data moving from Amazon S3 through ADF staging and Databricks validation, then branching to Azure SQL reporting or ADLS rejected-data storage.", width: 1600, height: 900, featured: true },
     ],
     seo: {
       title: "Retail Data Validation with Azure Databricks | Pushpak Vootla",
@@ -957,7 +957,7 @@ export const projects: Project[] = [
     featured: true,
     caseStudyAvailable: true,
     media: [
-      { id: "movie-data-flow-architecture", type: "architecture", src: "/projects/movie-analytics-adf-pipeline/architecture.svg", title: "Movie Analytics Mapping Data Flow", caption: "Azure Data Factory Mapping Data Flow sequence for genre derivation, ranking, grouped measures, validation and conditional output routing.", alt: "Architecture showing an Azure Data Factory Mapping Data Flow applying Derived Column, Window, Aggregate, Assert and Conditional Split transformations to movie CSV data.", width: 1600, height: 900, featured: true },
+      { id: "movie-data-flow-architecture", type: "architecture", src: "/projects/movie-analytics-adf-pipeline/architecture.svg", title: "Movie Analytics Mapping Data Flow", caption: "Mapping Data Flow derives genre, ranks rows, aggregates measures, applies assertions and branches approved release-year groups to Azure SQL or ADLS Gen2 before source archival.", alt: "Architecture showing movie CSV data moving through Derived Column, Window, Aggregate, Assert and Conditional Split transformations, then branching to Azure SQL and ADLS Gen2 outputs.", width: 1600, height: 900, featured: true },
     ],
     seo: {
       title: "Movie Analytics Pipeline with Azure Data Factory | Pushpak Vootla",
