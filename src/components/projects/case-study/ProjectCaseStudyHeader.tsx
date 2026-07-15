@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Tag } from "@/components/ui/Tag";
+import { TechnologyTag } from "@/components/ui/TechnologyMark";
 import type { Project } from "@/types/content";
 
 export function ProjectBreadcrumb({ project }: { project: Project }) {
@@ -28,7 +28,7 @@ export function ProjectHero({ project }: { project: Project }) {
             <p className="case-study-summary">{project.caseStudy?.heroSummary ?? project.summary}</p>
             {project.caseStudy?.supportingStatement && <p className="case-study-supporting">{project.caseStudy.supportingStatement}</p>}
             <div className="tag-list" aria-label={`${project.title} technologies`}>
-              {(project.caseStudy?.heroTechnologies ?? project.technologies).slice(0, 4).map((technology) => <Tag key={technology}>{technology}</Tag>)}
+              {(project.caseStudy?.heroTechnologies ?? project.technologies).slice(0, 4).map((technology) => <TechnologyTag key={technology} technology={technology} />)}
             </div>
             <div className="case-study-actions">
               {architectureAsset && <Button href="#architecture-diagram" variant="ghost">View Architecture</Button>}

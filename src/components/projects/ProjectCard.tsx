@@ -1,6 +1,7 @@
 import type { Project } from "@/types/content";
 import Link from "next/link";
 import { Tag } from "@/components/ui/Tag";
+import { TechnologyMark } from "@/components/ui/TechnologyMark";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,7 +17,7 @@ export function ProjectCard({ project, projectNumber, compact = false }: Project
           {String(projectNumber).padStart(2, "0")}
         </span>
         <div>
-          <p className="card-kicker">{(project.platforms ?? [project.platform]).join(" + ")}</p>
+          <p className="card-kicker platform-kicker"><TechnologyMark technology={project.platform} /><span>{(project.platforms ?? [project.platform]).join(" + ")}</span></p>
           <p className="project-category">{project.category}</p>
         </div>
       </div>

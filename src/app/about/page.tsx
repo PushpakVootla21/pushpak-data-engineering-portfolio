@@ -1,9 +1,11 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Braces, Database, GitBranch, LockKeyhole, ShieldCheck, Workflow } from "lucide-react";
 import { CertificationCard } from "@/components/certifications/CertificationCard";
 import { Button } from "@/components/ui/Button";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { Tag } from "@/components/ui/Tag";
+import { TechnologyTag } from "@/components/ui/TechnologyMark";
 import { profile } from "@/lib/site";
 import { skillGroups } from "@/data/skills";
 import { absoluteTitle, canonicalFor } from "@/lib/metadata";
@@ -21,6 +23,15 @@ const principles = [
   { title: "Protect Reruns and Watermarks", description: "Ensure repeated processing and incremental state changes follow controlled success conditions." },
   { title: "Keep the Design Explainable", description: "Use clear configuration, consistent naming and documentation so the pipeline can be understood and maintained." },
 ];
+
+const skillGroupIcons = {
+  orchestration: Workflow,
+  processing: Braces,
+  "lakehouse-storage": Database,
+  "quality-reliability": ShieldCheck,
+  "governance-security": LockKeyhole,
+  "development-delivery": GitBranch,
+};
 
 export default function AboutPage() {
   return (
@@ -44,7 +55,10 @@ export default function AboutPage() {
         <ol className="principles-grid">{principles.map((principle, index) => <li key={principle.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{principle.title}</h3><p>{principle.description}</p></li>)}</ol>
       </SectionContainer>
       <SectionContainer className="section-muted" eyebrow="Capabilities" title="Current Technical Focus" description="Technologies and practices I currently use or continue to develop through implementation and portfolio work.">
-        <div className="technology-grid about-skill-grid">{skillGroups.map((group) => <article className="technology-group" key={group.id}><h3>{group.title}</h3><p className="skill-group-description">{group.description}</p><div className="tag-list">{group.skills.map((skill) => <Tag key={skill.id}>{skill.name}</Tag>)}</div></article>)}</div>
+        <div className="technology-grid about-skill-grid">{skillGroups.map((group) => {
+          const GroupIcon = skillGroupIcons[group.id as keyof typeof skillGroupIcons];
+          return <article className="technology-group" key={group.id}><h3 className="skill-group-heading"><span className="skill-group-icon" aria-hidden="true"><GroupIcon size={17} strokeWidth={1.8} /></span><span>{group.title}</span></h3><p className="skill-group-description">{group.description}</p><div className="tag-list">{group.skills.map((skill) => skill.featured ? <TechnologyTag key={skill.id} technology={skill.name} /> : <Tag key={skill.id}>{skill.name}</Tag>)}</div></article>;
+        })}</div>
       </SectionContainer>
       <SectionContainer id="certifications" eyebrow="Credentials" title="Certifications" description="Professional certifications and learning credentials across Azure, AWS and supporting delivery tools.">
         <div className="certification-grid about-certifications">{profile.certifications.map((certification) => <CertificationCard key={certification.id} certification={certification} />)}</div>

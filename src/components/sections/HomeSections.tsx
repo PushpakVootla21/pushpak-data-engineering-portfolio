@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { CertificationCard } from "@/components/certifications/CertificationCard";
 import { HorizontalCarousel } from "@/components/ui/HorizontalCarousel";
 import { SectionContainer } from "@/components/ui/SectionContainer";
-import { Tag } from "@/components/ui/Tag";
+import { TechnologyTag } from "@/components/ui/TechnologyMark";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { engineeringWorkflow } from "@/data/content";
 import { coreStack } from "@/data/skills";
@@ -12,7 +12,7 @@ import { profile } from "@/lib/site";
 export function TechnologyStackSection() {
   return (
     <SectionContainer id="skills" eyebrow="Technical Focus" title="Core Data Engineering Stack" description="Platforms and engineering patterns used across ingestion, transformation, validation, lakehouse processing and pipeline reliability.">
-      <div className="core-stack" aria-label="Core data engineering technologies">{coreStack.map((item) => <Tag key={item}>{item}</Tag>)}</div>
+      <div className="core-stack" aria-label="Core data engineering technologies">{coreStack.map((item) => <TechnologyTag key={item} technology={item} prominent />)}</div>
     </SectionContainer>
   );
 }
