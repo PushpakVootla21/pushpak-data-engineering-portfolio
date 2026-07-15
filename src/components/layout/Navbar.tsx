@@ -2,14 +2,38 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { navigationLinks, profile } from "@/lib/site";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const shouldResetHomeScrollRef = useRef(false);
   const pathname = usePathname();
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+  const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+    if (event.button !== 0 || isModifiedClick) return;
+
+    setIsOpen(false);
+    if (pathname !== "/") {
+      shouldResetHomeScrollRef.current = true;
+      return;
+    }
+
+    event.preventDefault();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  };
+
+  useEffect(() => {
+    if (pathname !== "/" || !shouldResetHomeScrollRef.current) return;
+
+    shouldResetHomeScrollRef.current = false;
+    const frame = window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+    return () => window.cancelAnimationFrame(frame);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -32,6 +56,7 @@ export function Navbar() {
         <Link
           href="/"
           className="rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-azure-600"
+          onClick={handleBrandClick}
         >
           <span className="block text-base font-bold leading-5 text-slate-950">{profile.name}</span>
           <span className="block text-xs font-medium text-slate-500">{profile.brandLabel}</span>
