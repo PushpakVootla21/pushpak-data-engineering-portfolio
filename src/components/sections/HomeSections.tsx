@@ -11,7 +11,7 @@ import { profile } from "@/lib/site";
 
 export function TechnologyStackSection() {
   return (
-    <SectionContainer id="skills" eyebrow="Technical Focus" title="Core Data Engineering Stack" description="Platforms and engineering patterns used across ingestion, transformation, validation, lakehouse processing and operational reliability.">
+    <SectionContainer id="skills" eyebrow="Technical Focus" title="Core Data Engineering Stack" description="Platforms and engineering patterns used across ingestion, transformation, validation, lakehouse processing and pipeline reliability.">
       <div className="core-stack" aria-label="Core data engineering technologies">{coreStack.map((item) => <Tag key={item}>{item}</Tag>)}</div>
     </SectionContainer>
   );
@@ -44,7 +44,7 @@ export function ProfessionalProfileSection() {
   return (
     <SectionContainer id="experience-snapshot" eyebrow="Experience Snapshot" title="Current Azure Data Engineering Focus">
       <div className="profile-layout">
-        <div className="profile-copy"><p>Currently working as an Associate Data Engineer at Ensono, with a focus on metadata-driven orchestration, Databricks Landing-to-Raw processing, validation, framework logging, watermark protection and reliable downstream data delivery.</p><div className="section-action"><Button href="/experience" variant="secondary">View Experience</Button></div></div>
+        <div className="profile-copy"><p>Currently working as an Associate Data Engineer at Ensono Technologies LLP, developing metadata-driven ingestion, Databricks lakehouse processing, validation and incremental-loading controls while supporting pipeline issue resolution.</p><div className="section-action"><Button href="/experience" variant="secondary">View Experience</Button></div></div>
         <aside className="profile-facts" aria-label="Professional profile summary">
           <div><span>Target role</span><strong>{profile.professionalTitle}</strong></div>
           <div><span>Location</span><strong>{profile.location}</strong></div>

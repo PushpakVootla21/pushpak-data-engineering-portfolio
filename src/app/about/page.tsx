@@ -10,14 +10,14 @@ import { absoluteTitle, canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: absoluteTitle("About Pushpak Vootla | Azure Data Engineer"),
-  description: "Learn about Pushpak Vootla’s Azure Data Engineering focus, production operations mindset and hands-on work with ADF, Databricks, PySpark, Delta Lake and Microsoft Fabric.",
+  description: "Learn about Pushpak Vootla’s Azure Data Engineering development experience and hands-on work with ADF, Databricks, PySpark, Delta Lake and Microsoft Fabric.",
   alternates: canonicalFor("/about"),
 };
 
 const principles = [
   { title: "Understand the Data Contract", description: "Clarify the source structure, refresh pattern, expected output and downstream dependency before implementation." },
   { title: "Validate Before Promotion", description: "Apply schema, file, record and business-rule checks before data reaches a trusted layer." },
-  { title: "Design for Operational Visibility", description: "Capture execution status, failure context, row counts and stage-level information needed for support." },
+  { title: "Design for Supportability", description: "Capture execution status, failure context, row counts and stage-level information needed to investigate pipeline issues." },
   { title: "Protect Reruns and Watermarks", description: "Ensure repeated processing and incremental state changes follow controlled success conditions." },
   { title: "Keep the Design Explainable", description: "Use clear configuration, consistent naming and documentation so the pipeline can be understood and maintained." },
 ];
@@ -30,10 +30,10 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">Professional Profile</p>
             <h1>About Me</h1>
-            <h2>Azure Data Engineering with a Production Operations Mindset</h2>
+            <h2>Azure Data Engineering with a Development and Reliability Focus</h2>
             <div className="about-narrative">
               <p>I am an Azure Data Engineer based in {profile.shortLocation} with more than three years of professional experience. My current direction centres on building dependable ingestion and lakehouse workflows across Azure data platforms.</p>
-              <p>My approach to data engineering is influenced by production operations. I consider a pipeline complete only when its validation, monitoring, failure handling, rerun behaviour and downstream data contract are clear.</p>
+              <p>My work is development-focused: I build metadata-driven ingestion, Databricks processing, Delta Lake pipelines and validation controls. I also support pipeline issue investigation and resolution so data delivery remains dependable.</p>
               <p>Alongside professional implementation work, I develop portfolio case studies to explore Microsoft Fabric, Mapping Data Flows, validation-first ingestion and maintainable data-quality controls.</p>
             </div>
           </div>

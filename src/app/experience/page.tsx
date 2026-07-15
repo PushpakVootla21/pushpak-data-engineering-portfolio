@@ -7,13 +7,13 @@ import { absoluteTitle, canonicalFor } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   title: absoluteTitle("Professional Experience | Pushpak Vootla"),
-  description: "Professional experience across Azure Data Engineering, pipeline orchestration, Databricks processing, data validation and enterprise technology operations.",
+  description: "Professional experience across Azure Data Engineering development, pipeline orchestration, Databricks processing, data validation and pipeline support.",
   alternates: canonicalFor("/experience"),
 };
 
 const connectionCards = [
-  { title: "Operations Mindset", description: "Experience with monitoring, failure investigation and controlled recovery influences how I design data pipelines." },
-  { title: "Data Engineering Focus", description: "Current work centres on Azure Data Factory, Databricks, PySpark, Delta Lake, validation and reliable data delivery." },
+  { title: "Pipeline Development", description: "Current work centres on Azure Data Factory, Databricks, PySpark, Delta Lake, validation and reliable data delivery." },
+  { title: "Reliability and Support", description: "Pipeline observability, issue investigation and controlled recovery inform how I develop and support data workflows." },
   { title: "Continuous Platform Development", description: "Hands-on portfolio projects extend my experience across Microsoft Fabric, lakehouse ingestion, Mapping Data Flows and metadata-driven architecture." },
 ];
 
@@ -27,11 +27,11 @@ export default function ExperiencePage() {
         <div className="profile-page-inner">
           <p className="eyebrow">Experience</p>
           <h1>Professional Experience</h1>
-          <p className="profile-page-lead">Professional experience across enterprise technology operations, cloud platform learning and hands-on Azure data engineering implementation.</p>
+          <p className="profile-page-lead">Professional experience across Azure data pipeline development, cloud platform learning and enterprise data delivery.</p>
           <p className="profile-page-supporting">My current focus is Azure Data Engineering, with practical work across pipeline orchestration, Databricks processing, data validation, framework logging, watermark controls and downstream data readiness.</p>
         </div>
       </header>
-      <SectionContainer eyebrow="Current Role" title="Azure Data Engineering and Operational Reliability">
+      <SectionContainer eyebrow="Current Role" title="Azure Data Engineering Development and Pipeline Reliability">
         <ExperienceTimeline entries={currentRole} />
       </SectionContainer>
       <SectionContainer className="section-muted" eyebrow="Foundation" title="Early-Career Training and Project Experience" description="These overlapping entries represent a Wipro project-trainee period and its assigned StackRoute training programme.">
